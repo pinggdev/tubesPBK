@@ -23,12 +23,24 @@
 
                 <li class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>
-                        <i class="bi bi-stack"></i>
+                        <i class="bi bi-people-fill"></i>
+                        <span>Kelas</span>
+                    </a>
+                    <ul class="submenu ">
+                        <li class="submenu-item ">
+                            <a href="{{ route('kelas.index') }}">List Kelas</a> 
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-book-fill"></i>
                         <span>Materi</span>
                     </a>
                     <ul class="submenu ">
                         <li class="submenu-item ">
-                            <a href="#">List Materi</a>
+                            <a href="{{ route('materi.index') }}">List Materi</a>
                         </li>
                     </ul>
                 </li>

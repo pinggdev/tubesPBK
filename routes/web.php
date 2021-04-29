@@ -19,4 +19,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::resource('kelas', 'KelasController');
+Route::resource('materi', 'MateriController');
+
 Route::get('/home', 'HomeController@index')->name('home');
