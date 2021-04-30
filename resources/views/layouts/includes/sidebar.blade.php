@@ -40,14 +40,14 @@
             <ul class="menu">
                 <li class="sidebar-title">Menu</li>
 
-                <li class="sidebar-item active ">
+                <li class="sidebar-item {{ Request::is('home') ? 'active' : '' }}">
                     <a href="/home" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
 
-                <li class="sidebar-item  has-sub">
+                <li class="sidebar-item  has-sub {{ Request::is('kelas') ? 'active' : '' }}">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-people-fill"></i>
                         <span>Kelas</span>
@@ -59,12 +59,12 @@
                     </ul>
                 </li>
 
-                <li class="sidebar-item  has-sub">
+                <li class="sidebar-item  has-sub {{ Request::is('materi') ? 'active' : '' }}">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-book-fill"></i>
                         <span>Materi</span>
                     </a>
-                    <ul class="submenu ">
+                    <ul class="submenu">
                         <li class="submenu-item ">
                             <a href="{{ route('materi.index') }}">List Materi</a>
                         </li>

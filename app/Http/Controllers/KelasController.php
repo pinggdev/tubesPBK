@@ -156,6 +156,9 @@ class KelasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $kelas = Kelas::find($id);
+        $kelas->delete();
+        return redirect()
+                ->route('kelas.index');
     }
 }

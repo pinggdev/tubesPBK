@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Kelas;
+use App\Materi;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class MateriController extends Controller
 {
@@ -11,9 +15,23 @@ class MateriController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request, Materi $materi, Kelas $kelas)
     {
-        return view('dashboard.materi.index');
+        $q = $request->input('q');
+
+
+        $materi = $materi->when($q, function($query) use ($q) {
+            return $query->where('materi', 'like', '%' .$q. '%');
+        })
+        ->paginate(10);
+        
+        $request = $request->all();
+
+        return view('dashboard.materi.index', [
+            'materi'     => $materi,
+            'request'   => $request,
+            'kelas'     => $kelas
+            ]);
     }
 
     /**
@@ -21,9 +39,10 @@ class MateriController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Kelas $kelas)
     {
-        //
+        $kelas = Kelas::all();
+        return view('dashboard.materi.form', ['kelas' => $kelas]);
     }
 
     /**
@@ -32,9 +51,27 @@ class MateriController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Materi $materi)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'materi'     => 'required|unique:App\Materi,kelas',
+            'kelas_id'    => 'required',
+            'link' => 'required'
+        ]);
+
+        if($validator->fails()) {
+            return redirect()
+                    ->route('materi.create')
+                    ->withErrors($validator)
+                    ->withInput();
+        } else {
+            $materi->materi = $request->input('materi');
+            $materi->kelas_id = $request->input('kelas_id');
+            $materi->link = $request->input('link');
+            $materi->slug = Str::slug($request->materi);
+            $materi->save();
+            return redirect()->route('materi.index');
+        }    
     }
 
     /**
@@ -56,7 +93,12 @@ class MateriController extends Controller
      */
     public function edit($id)
     {
-        //
+        $kelas = Kelas::all();
+        $materi = Materi::find($id);
+        return view('dashboard.materi.edit', [
+            'materi'     => $materi,
+            'kelas'      => $kelas
+            ]);
     }
 
     /**
@@ -68,7 +110,26 @@ class MateriController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $materi = Materi::find($id);
+        $validator = Validator::make($request->all(), [
+            'materi'     => 'required|unique:App\Materi,materi,'.$materi->id,
+            'kelas_id'   => 'required',
+            'link'       => 'required'
+        ]);
+
+        if($validator->fails()) {
+            return redirect()
+                    ->route('materi.edit', $materi->id)
+                    ->withErrors($validator)
+                    ->withInput();
+        } else {
+            $materi->materi = $request->input('materi');
+            $materi->kelas_id = $request->input('kelas_id');
+            $materi->link = $request->input('link');
+            $materi->slug = Str::slug($request->materi);
+            $materi->save();
+            return redirect()->route('materi.index');
+        }    
     }
 
     /**

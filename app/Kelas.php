@@ -12,4 +12,9 @@ class Kelas extends Model
     protected $table = "kelas";
 
     protected $fillable = ['kelas', 'deskripsi', 'gambar', 'slug'];
+
+    public function materi()
+    {
+        return $this->hasMany('App\Materi');
+    }
 }

@@ -16,13 +16,19 @@
                                 <label>Nama Kelas</label>
                             </div>
                             <div class="col-md-8 form-group">
-                                <input type="text" class="form-control" name="kelas" placeholder="Kelas" value="{{ $kelas->kelas }}">
+                                <input type="text" class="form-control  @error('kelas') {{ 'is-invalid' }} @enderror" name="kelas" placeholder="Kelas" value="{{ old('kelas') ?? $kelas->kelas ?? '' }}">
+                                @error('kelas')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="col-md-4">
                                 <label>Deskripsi</label>
                             </div>
                             <div class="col-md-8 form-group">
-                                <textarea class="form-control" id="teks" rows="3" name="deskripsi">{{ $kelas->deskripsi }}</textarea>
+                                <textarea class="form-control @error('deskripsi') {{ 'is-invalid' }} @enderror" id="teks" rows="3" name="deskripsi">{{ old('deskripsi') ?? $kelas->deskripsi ?? '' }}</textarea>
+                                @error('deskripsi')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="col-md-4">
                                 <label>Gambar</label>

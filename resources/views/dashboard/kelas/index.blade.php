@@ -24,36 +24,40 @@
             </div>
             <!-- Table with outer spacing -->
             <div class="table-responsive">
-                <table class="table table-lg">
-                    <thead>
-                        <tr>
-                            <th>KELAS</th>
-                            <th>DESKRIPSI</th>
-                            <th>GAMBAR</th>
-                            <th>ACTION</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($kelas as $kls)
+                @if ($kelas->total())
+                    <table class="table table-lg">
+                        <thead>
                             <tr>
-                                <td class="text-bold-500">{{ $kls->kelas }}</td>
-                                <td class="text-bold-500">{{ $kls->deskripsi }}</td>
-                                <td>
-                                    <img src="{{ asset('storage/kelas/'.$kls->gambar) }}" class="img-fluid" style="width: 100px;">
-                                </td>
-                                <td class="text-bold-500">
-                                    <form action="#" method="POST">
-                                        @csrf
-                                        @method('delete')
-                                        <a href="{{ route('kelas.edit', $kls->id) }}" class="btn btn-success btn-sm">Edit</a>
-                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                                    </form>
-                                </td>
+                                <th>NO/th>
+                                <th>KELAS</th>
+                                <th>DESKRIPSI</th>
+                                <th>GAMBAR</th>
+                                <th>ACTION</th>
                             </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-                {{ $kelas->links() }}
+                        </thead>
+                        <tbody>
+                            @foreach ($kelas as $kls)
+                                <tr>
+                                    <td scope="row" style="vertical-align: middle;">{{ ($kelas->currentPage() - 1) * $kelas->perPage() + $loop->iteration }}</td>
+                                    <td class="text-bold-500">{{ $kls->kelas }}</td>
+                                    <td class="text-bold-500">{{ $kls->deskripsi }}</td>
+                                    <td>
+                                        <img src="{{ asset('storage/kelas/'.$kls->gambar) }}" class="img-fluid" style="width: 100px;">
+                                    </td>
+                                    <td class="text-bold-500">
+                                        <form action="{{ route('kelas.destroy', $kls->id) }}" method="POST">
+                                            @csrf
+                                            @method('delete')
+                                            <a href="{{ route('kelas.edit', $kls->id) }}" class="btn btn-success btn-sm">Edit</a>
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                    {{ $kelas->appends($request)->links() }}
+                @endif
             </div>
         </div>
     </div>
