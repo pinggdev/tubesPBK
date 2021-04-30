@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class KelasController extends Controller
 {
@@ -15,10 +16,22 @@ class KelasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request, Kelas $kelas)
     {
-        $kelas = Kelas::paginate(10);
-        return view('dashboard.kelas.index', ['kelas' => $kelas]);
+        $q = $request->input('q');
+
+
+        $kelas = $kelas->when($q, function($query) use ($q) {
+            return $query->where('kelas', 'like', '%' .$q. '%');
+        })
+        ->paginate(10);
+
+        $request = $request->all();
+
+        return view('dashboard.kelas.index', [
+            'kelas'     => $kelas,
+            'request'   => $request
+            ]);
     }
 
     /**
@@ -39,17 +52,29 @@ class KelasController extends Controller
      */
     public function store(Request $request, Kelas $kelas)
     {   
-        
-        $image = $request->file('gambar');
-        $filename = time() . '.' . $image->getClientOriginalExtension();
-        Storage::disk('local')->putFileAs('public/kelas', $image, $filename);
+        $validator = Validator::make($request->all(), [
+            'kelas'     => 'required|unique:App\Kelas,kelas',
+            'gambar'    => 'required|image',
+            'deskripsi' => 'required'
+        ]);
 
-        $kelas->kelas = $request->input('kelas');
-        $kelas->gambar = $filename;
-        $kelas->slug = Str::slug($request->kelas);
-        $kelas->save();
-
-        return redirect()->route('kelas.index');
+        if($validator->fails()) {
+            return redirect()
+                    ->route('kelas.create')
+                    ->withErrors($validator)
+                    ->withInput();
+        } else {
+            $image = $request->file('gambar');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            Storage::disk('local')->putFileAs('public/kelas', $image, $filename);
+    
+            $kelas->kelas = $request->input('kelas');
+            $kelas->deskripsi = $request->input('deskripsi');
+            $kelas->gambar = $filename;
+            $kelas->slug = Str::slug($request->kelas);
+            $kelas->save();
+            return redirect()->route('kelas.index');
+        }
     }
 
     /**
@@ -71,7 +96,10 @@ class KelasController extends Controller
      */
     public function edit($id)
     {
-        //
+        $kelas = Kelas::find($id);
+        return view('dashboard.kelas.edit', [
+            'kelas'     => $kelas,
+            ]);
     }
 
     /**
@@ -83,7 +111,41 @@ class KelasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $kelas = Kelas::find($id);
+        $validator = Validator::make($request->all(), [
+            'kelas'     => 'required|unique:App\Kelas,kelas,'.$kelas->id,
+            'gambar'    => 'image',
+            'deskripsi' => 'required'
+        ]);
+
+        if($validator->fails()) {
+            return redirect()
+                    ->route('kelas.edit', $kelas->id)
+                    ->withErrors($validator)
+                    ->withInput();
+        } else {
+            if($request->has('gambar')) {
+                $image = $request->file('gambar');
+                $filename = time() . '.' . $image->getClientOriginalExtension();
+                Storage::disk('local')->putFileAs('public/kelas', $image, $filename);
+
+                $kelas_data = [
+                    'kelas'     => $request->kelas,
+                    'gambar'    => $filename,
+                    'deskripsi' => $request->deskripsi,
+                    'slug'      => Str::slug($request->kelas)
+                ];
+            } else {
+                $kelas_data = [
+                    'kelas'     => $request->kelas,
+                    // 'gambar'    => Storage::disk('local')->putFileAs('public/kelas', $image, $filename),
+                    'deskripsi' => $request->deskripsi,
+                    'slug'      => Str::slug($request->kelas)
+                ];
+            }
+            $kelas->update($kelas_data);
+        }
+        return redirect()->route('kelas.index');
     }
 
     /**

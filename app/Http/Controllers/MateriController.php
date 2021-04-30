@@ -13,7 +13,7 @@ class MateriController extends Controller
      */
     public function index()
     {
-        return view('materi.index');
+        return view('dashboard.materi.index');
     }
 
     /**

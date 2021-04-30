@@ -18,7 +18,6 @@ class CreateMateriTable extends Migration
             $table->string('materi');
             $table->integer('kelas_id');
             $table->text('link');
-            $table->text('deskripsi');
             $table->string('slug');
             $table->softDeletes('deleted_at');
             $table->timestamps();

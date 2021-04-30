@@ -7,13 +7,28 @@
     </div>
     <div class="card-content">
         <div class="card-body">
-            <a href="{{ route('kelas.create') }}" class="btn btn-primary">Tambah Kelas</a>
+            <div class="row">
+                <div class="col-8 align-self-center">
+                    <a href="{{ route('kelas.create') }}" class="btn btn-primary btn-sm align-self-center">Tambah Kelas</a>
+                </div>
+                <div class="col-4">
+                    <form method="get" action="{{ route('kelas.index') }}">
+                        <div class="input-group">
+                            <input type="text" class="form-control form-control-sm" name="q" value="{{ $request['q'] ?? '' }}">
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-primary btn-sm">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
             <!-- Table with outer spacing -->
             <div class="table-responsive">
                 <table class="table table-lg">
                     <thead>
                         <tr>
                             <th>KELAS</th>
+                            <th>DESKRIPSI</th>
                             <th>GAMBAR</th>
                             <th>ACTION</th>
                         </tr>
@@ -22,6 +37,7 @@
                         @foreach ($kelas as $kls)
                             <tr>
                                 <td class="text-bold-500">{{ $kls->kelas }}</td>
+                                <td class="text-bold-500">{{ $kls->deskripsi }}</td>
                                 <td>
                                     <img src="{{ asset('storage/kelas/'.$kls->gambar) }}" class="img-fluid" style="width: 100px;">
                                 </td>
@@ -29,8 +45,8 @@
                                     <form action="#" method="POST">
                                         @csrf
                                         @method('delete')
-                                        <a href="#" class="btn btn-success">Edit</a>
-                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                        <a href="{{ route('kelas.edit', $kls->id) }}" class="btn btn-success btn-sm">Edit</a>
+                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                                     </form>
                                 </td>
                             </tr>
