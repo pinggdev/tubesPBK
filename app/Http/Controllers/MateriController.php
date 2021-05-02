@@ -54,7 +54,7 @@ class MateriController extends Controller
     public function store(Request $request, Materi $materi)
     {
         $validator = Validator::make($request->all(), [
-            'materi'     => 'required|unique:App\Materi,kelas',
+            'materi'     => 'required|unique:App\Materi,materi',
             'kelas_id'    => 'required',
             'link' => 'required'
         ]);
@@ -140,6 +140,9 @@ class MateriController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $materi = Materi::find($id);
+        $materi->delete();
+        return redirect()
+                ->route('materi.index');
     }
 }

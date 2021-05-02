@@ -28,7 +28,7 @@
                     <table class="table table-lg">
                         <thead>
                             <tr>
-                                <th>NO/th>
+                                <th>NO</th>
                                 <th>KELAS</th>
                                 <th>DESKRIPSI</th>
                                 <th>GAMBAR</th>

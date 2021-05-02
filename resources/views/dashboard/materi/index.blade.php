@@ -30,7 +30,7 @@
                             <tr>
                                 <th>NO</th>
                                 <th>MATERI</th>
-                                <th>KURIKULUM</th>
+                                <th>KELAS</th>
                                 <th>LINK</th>
                                 <th>ACTION</th>
                             </tr>
@@ -43,7 +43,7 @@
                                     <td class="text-bold-500">{{ $mtr->kelas->kelas }}</td>
                                     <td class="text-bold-500">{{ $mtr->link }}</td>
                                     <td class="text-bold-500">
-                                        <form action="#" method="POST">
+                                        <form action="{{ route('materi.destroy', $mtr->id) }}" method="POST">
                                             @csrf
                                             @method('delete')
                                             <a href="{{ route('materi.edit', $mtr->id) }}" class="btn btn-success btn-sm">Edit</a>
