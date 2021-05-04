@@ -71,6 +71,18 @@
                     </ul>
                 </li>
 
+                <li class="sidebar-item  has-sub {{ Request::is('siswa') ? 'active' : '' }}">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-book-fill"></i>
+                        <span>Member</span>
+                    </a>
+                    <ul class="submenu">
+                        <li class="submenu-item ">
+                            <a href="{{ route('materi.index') }}">List Member</a>
+                        </li>
+                    </ul>
+                </li>
+
             </ul>
         </div>
         <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
