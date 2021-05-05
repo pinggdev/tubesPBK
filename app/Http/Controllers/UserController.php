@@ -124,7 +124,7 @@ class UserController extends Controller
             'name'      => 'required',
             'role'      => 'required',
             'email'     => 'required|unique:App\User,email,'.$user->id,
-            'avatar'    => 'required|image',
+            'avatar'    => 'image',
         ]);
 
         if($validator->fails()) {
@@ -133,7 +133,7 @@ class UserController extends Controller
                     ->withErrors($validator)
                     ->withInput();
         } else {
-            if($request->has('avatar') || $request->input('password')) {
+            if($request->has('avatar') && $request->input('password')) {
                 $password = Hash::make($request->password);
                 $image = $request->file('avatar');
                 $filename = time() . '.' . $image->getClientOriginalExtension();
@@ -147,7 +147,28 @@ class UserController extends Controller
                     'avatar'    => $filename,
                 ];
 
-            } else {
+            } else if ($request->has('avatar')) {
+                $image = $request->file('avatar');
+                $filename = time() . '.' . $image->getClientOriginalExtension();
+                Storage::disk('local')->putFileAs('public/user', $image, $filename);
+
+                $user_data = [
+                    'name'      => $request->name,
+                    'role'      => $request->role,
+                    'email'     => $request->email,
+                    'avatar'    => $filename,
+                ];
+            } else if ($request->input('password')) {
+                $password = Hash::make($request->password);
+
+                $user_data = [
+                    'name'      => $request->name,
+                    'role'      => $request->role,
+                    'email'     => $request->email,
+                    'password'  => $password,
+                ];
+            }
+            else {
                 $user_data = [
                     'name'      => $request->name,
                     'role'      => $request->role,
