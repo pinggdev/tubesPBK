@@ -17,7 +17,7 @@
                 <li class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>
                         <div class="avatar avatar-xl">
-                            <img src="{{ asset('admin/assets/images/faces/1.jpg') }}" alt="" style="width: 20px; height: 20px">
+                            <img src="{{ Auth::user()->getAvatar() }}" alt="" style="width: 20px; height: 20px">
                         </div>
                         <span>{{ Auth::user()->name }}</span>
                     </a>
@@ -47,41 +47,43 @@
                     </a>
                 </li>
 
-                <li class="sidebar-item  has-sub {{ Request::is('kelas') ? 'active' : '' }}">
-                    <a href="#" class='sidebar-link'>
-                        <i class="bi bi-people-fill"></i>
-                        <span>Kelas</span>
-                    </a>
-                    <ul class="submenu ">
-                        <li class="submenu-item ">
-                            <a href="{{ route('kelas.index') }}">List Kelas</a> 
-                        </li>
-                    </ul>
-                </li>
+                @if (auth()->user()->role == 'admin')
+                    <li class="sidebar-item  has-sub {{ Request::is('kelas') ? 'active' : '' }}">
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-people-fill"></i>
+                            <span>Kelas</span>
+                        </a>
+                        <ul class="submenu ">
+                            <li class="submenu-item ">
+                                <a href="{{ route('kelas.index') }}">List Kelas</a> 
+                            </li>
+                        </ul>
+                    </li>
 
-                <li class="sidebar-item  has-sub {{ Request::is('materi') ? 'active' : '' }}">
-                    <a href="#" class='sidebar-link'>
-                        <i class="bi bi-book-fill"></i>
-                        <span>Materi</span>
-                    </a>
-                    <ul class="submenu">
-                        <li class="submenu-item ">
-                            <a href="{{ route('materi.index') }}">List Materi</a>
-                        </li>
-                    </ul>
-                </li>
+                    <li class="sidebar-item  has-sub {{ Request::is('materi') ? 'active' : '' }}">
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-book-fill"></i>
+                            <span>Materi</span>
+                        </a>
+                        <ul class="submenu">
+                            <li class="submenu-item ">
+                                <a href="{{ route('materi.index') }}">List Materi</a>
+                            </li>
+                        </ul>
+                    </li>
 
-                <li class="sidebar-item  has-sub {{ Request::is('siswa') ? 'active' : '' }}">
-                    <a href="#" class='sidebar-link'>
-                        <i class="bi bi-book-fill"></i>
-                        <span>Member</span>
-                    </a>
-                    <ul class="submenu">
-                        <li class="submenu-item ">
-                            <a href="{{ route('materi.index') }}">List Member</a>
-                        </li>
-                    </ul>
-                </li>
+                    <li class="sidebar-item  has-sub {{ Request::is('user') ? 'active' : '' }}">
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-person-fill"></i>
+                            <span>User</span>
+                        </a>
+                        <ul class="submenu">
+                            <li class="submenu-item ">
+                                <a href="{{ route('user.index') }}">List User</a>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
 
             </ul>
         </div>

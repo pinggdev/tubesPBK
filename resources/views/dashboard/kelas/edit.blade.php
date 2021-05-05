@@ -38,7 +38,7 @@
                             </div>
                             <div class="col-sm-12 d-flex justify-content-end">
                                 <button type="submit" class="btn btn-primary me-1 mb-1">Edit</button>
-                                <button type="reset" class="btn btn-light-secondary me-1 mb-1">Batal</button>
+                                <a href="{{ route('kelas.index') }}" class="btn btn-light-secondary me-1 mb-1">Batal</a>
                             </div>
                         </div>
                     </div>
@@ -46,4 +46,18 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('ckeditor')
+    <script src="https://cdn.ckeditor.com/ckeditor5/27.0.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+                .create( document.querySelector( '#teks' ) )
+                .then( editor => {
+                        console.log( editor );
+                } )
+                .catch( error => {
+                        console.error( error );
+                } );
+    </script>
 @endsection
