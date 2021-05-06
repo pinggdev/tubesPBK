@@ -1,0 +1,225 @@
+$font-poppins: 'Poppins', sans-serif;
+$size60: 60px;
+$size36: 36px;
+$size18: 18px;
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semibold: 600;
+$bold: 700;
+$hitam: #253342;
+$biru: #1D4076;
+$putih: #F0F0F0;
+$secondary: #E0E0E0;
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: $font-poppins;
+    color: $hitam;
+    // background: rgb(243, 156, 156);
+}
+
+.navbar {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-weight: $medium;
+    background: white !important;
+}
+
+.navbar .container-fluid .navbar-brand {
+    margin-left: 162px;
+}
+
+.navbar .container-fluid .kiri {
+    margin-left: 15px;
+}
+
+.navbar .container-fluid .kiri li a {
+    margin-left: 85px;
+    color: $hitam;
+}
+
+.navbar .container-fluid .kanan {
+    margin-right: 162px;
+}
+
+.navbar .container-fluid .kanan li a {
+    margin-right: 85px;
+    color: $hitam;
+}
+
+.jumbo-custom {
+    margin-top: 110px;
+}
+
+.jumbo-custom .jumbotron .container {
+    margin: 0 360px;
+}
+
+.jumbo-custom .jumbotron .container h1 {
+    font-size: $size60;
+    font-weight: $bold;
+    color: $biru;
+}
+
+.jumbo-custom .jumbotron .container p {
+    font-size: $size18;
+    font-weight: $light;
+    color: $hitam;
+    margin-top: 40px;
+}
+
+.jumbo-custom .jumbotron .container a {
+    font-size: $size18;
+    font-weight: $medium;
+    color: $hitam;
+    margin-top: 60px;
+    border-radius: 20px;
+    margin-right: 45px;
+}
+
+.jumbo-custom .jumbotron .container .btn-primary-custom {
+    background: $biru;
+    color: $putih;
+}
+
+.jumbo-custom .jumbotron .container .btn-secondary-custom {
+    background: $secondary;
+    color: $hitam;
+}
+
+.daftar-kelas .container h3 {
+    font-size: $size36;
+    font-weight: $bold;
+    margin-top: 140px;
+}
+
+.daftar-kelas .container .card-kelas {
+    background: #FFFFFF;
+    width: 485px;
+    height: 280px;
+    margin-top: 60px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 6px rgba($color: $biru, $alpha: 0.4);
+}
+
+.daftar-kelas .container .card-kelas img {
+    margin-top: 30px;
+    margin-left: 40px;
+}
+
+.daftar-kelas .container .card-kelas h6 {
+    margin-top: 25px;
+    margin-left: 40px;
+    font-size: 24px;
+    font-weight: $semibold;
+}
+
+.daftar-kelas .container .card-kelas p {
+    margin-top: 0px;
+    margin-bottom: 30px;
+    margin-left: 40px;
+    font-size: $size18;
+    font-weight: $light;
+}
+
+.kenapa h3 {
+    font-size: $size36;
+    font-weight: $bold;
+    margin-top: 180px;
+}
+
+.kenapa .card-kenapa {
+    background: #F0F0F0;
+    margin-top: 60px;
+    padding: 76px 0px;
+}
+
+.kenapa .card-kenapa .col-8 p {
+    font-weight: $light;
+    font-size: $size18;
+}
+
+footer {
+    background: $biru;
+    margin-top: 240px;
+    color: #f0f0f0;
+    padding: 80px 0px;
+}
+
+footer .container-fluid .row .kiri {
+    margin-left: 177px;
+    font-weight: $regular;
+}
+
+footer .container-fluid .row .kiri img {
+    margin-bottom: 30px;
+}
+
+footer .container-fluid .row .kiri p {
+    margin-bottom: 30px;
+}
+
+footer .container-fluid .row .isi-footer .footer-judul {
+    font-weight: $bold;
+}
+
+footer .container-fluid .row .isi-footer ul {
+    list-style-type: none;
+}
+
+footer .container-fluid .row .isi-footer ul li a{
+    color: #F0F0F0;
+    font-weight: $light;
+}
+
+
+@media (max-width: 1440px) {
+
+    .navbar .container-fluid .navbar-brand {
+        margin-left: 0px;
+    }
+    
+    .navbar .container-fluid .kiri li a {
+        margin-left: 30px;
+        color: $hitam;
+    }
+    
+    .navbar .container-fluid .kanan {
+        margin-right: 0px;
+    }
+    
+    .navbar .container-fluid .kanan li a {
+        margin-right: 30px;
+        color: $hitam;
+    }
+
+    .jumbo-custom .jumbotron .container {
+        margin: 0 140px;
+    }
+
+}
+
+@media (max-width: 991px) {
+
+    .jumbo-custom .jumbotron .container {
+        margin: 0 0px;
+    }
+
+    .jumbo-custom .jumbotron .container h1 {
+        font-size: 34px;
+    }
+    
+    .jumbo-custom .jumbotron .container p {
+        font-size: 14px;
+        margin-top: 20px;
+    }
+    
+    .jumbo-custom .jumbotron .container a {
+        font-size: 14px;
+        margin-top: 20px;
+        border-radius: 20px;
+    }
+
+}

@@ -1,0 +1,206 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Poppins", sans-serif;
+  color: #253342;
+}
+
+.navbar {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-weight: 500;
+  background: white !important;
+}
+
+.navbar .container-fluid .navbar-brand {
+  margin-left: 162px;
+}
+
+.navbar .container-fluid .kiri {
+  margin-left: 15px;
+}
+
+.navbar .container-fluid .kiri li a {
+  margin-left: 85px;
+  color: #253342;
+}
+
+.navbar .container-fluid .kanan {
+  margin-right: 162px;
+}
+
+.navbar .container-fluid .kanan li a {
+  margin-right: 85px;
+  color: #253342;
+}
+
+.jumbo-custom {
+  margin-top: 110px;
+}
+
+.jumbo-custom .jumbotron .container {
+  margin: 0 360px;
+}
+
+.jumbo-custom .jumbotron .container h1 {
+  font-size: 60px;
+  font-weight: 700;
+  color: #1D4076;
+}
+
+.jumbo-custom .jumbotron .container p {
+  font-size: 18px;
+  font-weight: 300;
+  color: #253342;
+  margin-top: 40px;
+}
+
+.jumbo-custom .jumbotron .container a {
+  font-size: 18px;
+  font-weight: 500;
+  color: #253342;
+  margin-top: 60px;
+  border-radius: 20px;
+  margin-right: 45px;
+}
+
+.jumbo-custom .jumbotron .container .btn-primary-custom {
+  background: #1D4076;
+  color: #F0F0F0;
+}
+
+.jumbo-custom .jumbotron .container .btn-secondary-custom {
+  background: #E0E0E0;
+  color: #253342;
+}
+
+.daftar-kelas .container h3 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-top: 140px;
+}
+
+.daftar-kelas .container .card-kelas {
+  background: #FFFFFF;
+  width: 485px;
+  height: 280px;
+  margin-top: 60px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 6px rgba(29, 64, 118, 0.4);
+}
+
+.daftar-kelas .container .card-kelas img {
+  margin-top: 30px;
+  margin-left: 40px;
+}
+
+.daftar-kelas .container .card-kelas h6 {
+  margin-top: 25px;
+  margin-left: 40px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.daftar-kelas .container .card-kelas p {
+  margin-top: 0px;
+  margin-bottom: 30px;
+  margin-left: 40px;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.kenapa h3 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-top: 180px;
+}
+
+.kenapa .card-kenapa {
+  background: #F0F0F0;
+  margin-top: 60px;
+  padding: 76px 0px;
+}
+
+.kenapa .card-kenapa .col-8 p {
+  font-weight: 300;
+  font-size: 18px;
+}
+
+footer {
+  background: #1D4076;
+  margin-top: 240px;
+  color: #f0f0f0;
+  padding: 80px 0px;
+}
+
+footer .container-fluid .row .kiri {
+  margin-left: 177px;
+  font-weight: 400;
+}
+
+footer .container-fluid .row .kiri img {
+  margin-bottom: 30px;
+}
+
+footer .container-fluid .row .kiri p {
+  margin-bottom: 30px;
+}
+
+footer .container-fluid .row .isi-footer .footer-judul {
+  font-weight: 700;
+}
+
+footer .container-fluid .row .isi-footer ul {
+  list-style-type: none;
+}
+
+footer .container-fluid .row .isi-footer ul li a {
+  color: #F0F0F0;
+  font-weight: 300;
+}
+
+@media (max-width: 1440px) {
+  .navbar .container-fluid .navbar-brand {
+    margin-left: 0px;
+  }
+
+  .navbar .container-fluid .kiri li a {
+    margin-left: 30px;
+    color: #253342;
+  }
+
+  .navbar .container-fluid .kanan {
+    margin-right: 0px;
+  }
+
+  .navbar .container-fluid .kanan li a {
+    margin-right: 30px;
+    color: #253342;
+  }
+
+  .jumbo-custom .jumbotron .container {
+    margin: 0 140px;
+  }
+}
+
+@media (max-width: 991px) {
+  .jumbo-custom .jumbotron .container {
+    margin: 0 0px;
+  }
+
+  .jumbo-custom .jumbotron .container h1 {
+    font-size: 34px;
+  }
+
+  .jumbo-custom .jumbotron .container p {
+    font-size: 14px;
+    margin-top: 20px;
+  }
+
+  .jumbo-custom .jumbotron .container a {
+    font-size: 14px;
+    margin-top: 20px;
+    border-radius: 20px;
+  }
+}
+
