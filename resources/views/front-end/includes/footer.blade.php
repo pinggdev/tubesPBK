@@ -1,7 +1,7 @@
     <footer>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-4 kiri">
+                <div class="col-md-4 kiri">
                     <img class="img-fluid" src="{{ asset('admin/assets/images/logo/proidwhite.png') }}" alt="logo">
                     <p>Website untuk belajar coding dan design dari mentor yang berpengalaman</p>
                     <p>© 2021 Pro.id</p>
@@ -9,7 +9,7 @@
                 {{-- <div class="col-1"></div> --}}
                 <div class="col-6 isi-footer">
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-md-4">
                             <ul>
                                 <p class="footer-judul">Program</p>
                                 <li>
@@ -29,7 +29,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="col-4">
+                        <div class="col-md-4">
                             <ul>
                                 <p class="footer-judul">Tautan</p>
                                 <li>
@@ -55,7 +55,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="col-4">
+                        <div class="col-md-4">
                             <ul>
                                 <p class="footer-judul">Kantor</p>
                                 <li>

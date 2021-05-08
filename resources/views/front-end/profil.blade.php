@@ -11,11 +11,7 @@
             </header>
 
             <div class="page-heading">
-                @if (auth()->user()->role == 'admin')
-                    <h3>Dashboard Admin</h3>
-                @else
-                    <h3>Belajar C++ Dasar</h3>
-                @endif
+                <h3>Kelas Saya</h3>
             </div>
             <div class="page-content">
                 @yield('content')

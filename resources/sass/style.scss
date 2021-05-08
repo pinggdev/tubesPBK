@@ -136,9 +136,9 @@ body {
     padding: 76px 0px;
 }
 
-.kenapa .card-kenapa .col-8 p {
+.kenapa .card-kenapa .container .col-md-8 p {
     font-weight: $light;
-    font-size: $size18;
+    font-size: 18px;
 }
 
 footer {
@@ -146,6 +146,7 @@ footer {
     margin-top: 240px;
     color: #f0f0f0;
     padding: 80px 0px;
+    font-size: 14px;
 }
 
 footer .container-fluid .row .kiri {
@@ -199,10 +200,19 @@ footer .container-fluid .row .isi-footer ul li a{
         margin: 0 140px;
     }
 
+    .daftar-kelas .container .card-kelas {
+        width: 400px;
+        height: 295px;
+    }
+
 }
 
 @media (max-width: 991px) {
-
+    
+    .navbar .container-fluid .kiri li a {
+        margin-left: 0px;
+    }
+    
     .jumbo-custom .jumbotron .container {
         margin: 0 0px;
     }
@@ -222,4 +232,59 @@ footer .container-fluid .row .isi-footer ul li a{
         border-radius: 20px;
     }
 
+    .jumbo-custom .jumbotron .kiri-jumbo  {
+        order: 2;
+    }
+
+    .daftar-kelas .container h3 {
+        font-size: 24px;
+        font-weight: $bold;
+        margin-top: 100px;
+    }
+
+    .daftar-kelas .container .card-kelas {
+        width: 300px;
+        height: 295px;
+    }
+
+    .daftar-kelas .container .card-kelas h6 {
+        margin-top: 25px;
+        margin-left: 40px;
+        font-size: 18px;
+        font-weight: $semibold;
+    }
+    
+    .daftar-kelas .container .card-kelas p {
+        margin-top: 0px;
+        margin-bottom: 30px;
+        margin-left: 40px;
+        font-size: 14px;
+        font-weight: $light;
+    }
+
+    .kenapa h3 {
+        font-size: 24px;    
+        margin-top: 100px;
+    }
+    
+    .kenapa .card-kenapa {
+        background: #F0F0F0;
+        margin-top: 60px;
+        padding: 76px 0px;
+    }
+    
+    .kenapa .card-kenapa .container .col-md-8 p {
+        font-size: 14px;
+    }
+    
+    footer {
+        margin-top: 200px;
+        font-size: 14px;
+    }
+    
+    footer .container-fluid .row .kiri {
+        margin-left: 0px;
+        font-weight: $regular;
+        order: 2;
+    }
 }

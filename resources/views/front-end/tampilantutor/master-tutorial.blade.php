@@ -1,8 +1,8 @@
-@include('layouts.includes.header')
+@include('front-end.tampilantutor.header')
 
 <body>
     <div id="app">
-        @include('layouts.includes.sidebar')
+        @include('front-end.tampilantutor.sidebar')
         <div id="main">
             <header class="mb-3">
                 <a href="#" class="burger-btn d-block d-xl-none">
@@ -11,17 +11,11 @@
             </header>
 
             <div class="page-heading">
-                @if (auth()->user()->role == 'admin')
-                    <h3>Dashboard Admin</h3>
-                @else
-                    <h3>Belajar C++ Dasar</h3>
-                @endif
+                
             </div>
             <div class="page-content">
                 @yield('content')
             </div>
-
-            @include('layouts.includes.footer')
         </div>
     </div>
     @yield('ckeditor')

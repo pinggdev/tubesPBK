@@ -50,7 +50,7 @@
                     @if (Route::has('login'))
                         @auth
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Hi, {{ Auth::user()->name }}   <img src="{{ Auth::user()->getAvatar() }}" alt="" style="width: 20px; height: 20px; border-radius: 50%;"></a>
+                                <a class="nav-link" href="@if (auth()->user()->role == 'admin') /home @else /profil @endif">Hi, {{ Auth::user()->name }}!!   <img src="{{ Auth::user()->getAvatar() }}" alt="" style="width: 20px; height: 20px; border-radius: 50%;"></a>
                             </li>
                         @else
                             <li class="nav-item">
