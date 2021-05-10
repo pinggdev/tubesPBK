@@ -55,6 +55,7 @@ class MateriController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'materi'     => 'required|unique:App\Materi,materi',
+            'babmateri'     => 'required',
             'kelas_id'    => 'required',
             'link' => 'required'
         ]);
@@ -66,6 +67,7 @@ class MateriController extends Controller
                     ->withInput();
         } else {
             $materi->materi = $request->input('materi');
+            $materi->babmateri = $request->input('babmateri');
             $materi->kelas_id = $request->input('kelas_id');
             $materi->link = $request->input('link');
             $materi->slug = Str::slug($request->materi);
@@ -113,6 +115,7 @@ class MateriController extends Controller
         $materi = Materi::find($id);
         $validator = Validator::make($request->all(), [
             'materi'     => 'required|unique:App\Materi,materi,'.$materi->id,
+            'babmateri'  => 'required',
             'kelas_id'   => 'required',
             'link'       => 'required'
         ]);
@@ -124,6 +127,7 @@ class MateriController extends Controller
                     ->withInput();
         } else {
             $materi->materi = $request->input('materi');
+            $materi->babmateri = $request->input('babmateri');
             $materi->kelas_id = $request->input('kelas_id');
             $materi->link = $request->input('link');
             $materi->slug = Str::slug($request->materi);

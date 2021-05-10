@@ -11,7 +11,7 @@ class Kelas extends Model
 
     protected $table = "kelas";
 
-    protected $fillable = ['kelas', 'deskripsi', 'gambar', 'slug'];
+    protected $fillable = ['kelas', 'deskripsi', 'bab', 'gambar' , 'slug'];
 
     public function materi()
     {

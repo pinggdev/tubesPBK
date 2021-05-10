@@ -30,6 +30,7 @@
                             <tr>
                                 <th>NO</th>
                                 <th>MATERI</th>
+                                <th>BAB</th>
                                 <th>KELAS</th>
                                 <th>LINK</th>
                                 <th>ACTION</th>
@@ -40,6 +41,7 @@
                                 <tr>
                                     <td scope="row" style="vertical-align: middle;">{{ ($materi->currentPage() - 1) * $materi->perPage() + $loop->iteration }}</td>
                                     <td class="text-bold-500">{{ $mtr->materi }}</td>
+                                    <td class="text-bold-500">Bab {{ $mtr->babmateri}}</td>
                                     <td class="text-bold-500">{{ $mtr->kelas->kelas }}</td>
                                     <td class="text-bold-500">{{ $mtr->link }}</td>
                                     <td class="text-bold-500">

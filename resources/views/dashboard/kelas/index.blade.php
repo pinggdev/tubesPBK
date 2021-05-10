@@ -31,6 +31,7 @@
                                 <th>NO</th>
                                 <th>KELAS</th>
                                 <th>DESKRIPSI</th>
+                                <th>BAB</th>
                                 <th>GAMBAR</th>
                                 <th>ACTION</th>
                             </tr>
@@ -41,6 +42,7 @@
                                     <td scope="row" style="vertical-align: middle;">{{ ($kelas->currentPage() - 1) * $kelas->perPage() + $loop->iteration }}</td>
                                     <td class="text-bold-500">{{ $kls->kelas }}</td>
                                     <td class="text-bold-500">{{ $kls->deskripsi }}</td>
+                                    <td class="text-bold-500">{{ $kls->bab }}</td>
                                     <td>
                                         <img src="{{ asset('storage/kelas/'.$kls->gambar) }}" class="img-fluid" style="width: 100px;">
                                     </td>

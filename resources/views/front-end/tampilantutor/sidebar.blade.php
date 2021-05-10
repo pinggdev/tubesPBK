@@ -11,19 +11,23 @@
                 </li>
             </ul>
             <ul class="menu">
+                @for ($i = 1; $i <= $kelas->bab; $i++)                            
                 <li class="sidebar-item  has-sub {{ Request::is('kelas') ? 'active' : '' }}">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-book-fill"></i>
-                        <span>Materi</span>
+                        <span>Bab {{ $i}}</span>
                     </a>
                     <ul class="submenu ">
-                        @foreach ($kelas->materi as $mtr)                            
-                        <li class="submenu-item ">
-                            <a href="/tutorial/{{ $mtr->kelas->id }}/{{ $mtr->id }}">{{ $mtr->materi }}</a> 
-                        </li>
+                        @foreach ($kelas->materi as $mtr)    
+                            @if ($mtr->babmateri == $i)
+                                <li class="submenu-item ">
+                                    <a href="/tutorial/{{ $mtr->kelas->id }}/{{ $mtr->id }}">{{ $mtr->materi }}</a> 
+                                </li>
+                            @endif   
                         @endforeach
                     </ul>
                 </li>
+                @endfor                     
             </ul>
         </div>
         <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>

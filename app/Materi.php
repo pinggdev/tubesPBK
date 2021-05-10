@@ -11,7 +11,7 @@ class Materi extends Model
 
     protected $table = 'materi';
 
-    protected $fillable = ['materi', 'kelas_id', 'link', 'slug'];
+    protected $fillable = ['materi', 'babmateri', 'kelas_id', 'link', 'slug'];
     
     public function kelas() {
         return $this->belongsTo('App\Kelas');

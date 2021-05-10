@@ -22,6 +22,25 @@
                                 @enderror
                             </div>
                             <div class="col-md-4">
+                                <label>Bab Materi</label>
+                            </div>
+                            <fieldset class=" col-md-8 form-group">
+                                <select class="form-select @error('babmateri') {{ 'is-invalid' }} @enderror" id="basicSelect" name="babmateri">  
+                                    <option value="">Pilih Bab</option>    
+                                    @foreach ($kelas as $kls)
+                                        @for ($i = 1; $i <= $kls->bab; $i++)
+                                            <option value="{{ $i }}" @if($materi->babmateri == $i) selected @endif>Bab {{ $i }}</option>    
+                                        @endfor
+                                    @endforeach 
+                                    {{-- @foreach ($kelas as $kls)
+                                        <option value="{{ $kls->id }}" @if($materi->babmateri == $kls->id) selected @endif>{{ $kls->kelas }}</option>    
+                                    @endforeach --}}
+                                </select>
+                                @error('babmateri')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </fieldset>
+                            <div class="col-md-4">
                                 <label>Kelas</label>
                             </div>
                             <fieldset class=" col-md-8 form-group">

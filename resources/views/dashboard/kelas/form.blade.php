@@ -30,6 +30,15 @@
                                 @enderror
                             </div>
                             <div class="col-md-4">
+                                <label>Bab</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text" class="form-control @error('bab') {{ 'is-invalid' }} @enderror" name="bab" value="{{ old('bab') }}">
+                                @error('bab')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-md-4">
                                 <label>Gambar</label>
                             </div>
                             <div class="col-md-8 form-group">

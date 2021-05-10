@@ -54,6 +54,7 @@ class KelasController extends Controller
     {   
         $validator = Validator::make($request->all(), [
             'kelas'     => 'required|unique:App\Kelas,kelas',
+            'bab'       => 'required',
             'gambar'    => 'required|image',
             'deskripsi' => 'required'
         ]);
@@ -70,6 +71,7 @@ class KelasController extends Controller
     
             $kelas->kelas = $request->input('kelas');
             $kelas->deskripsi = $request->input('deskripsi');
+            $kelas->bab = $request->input('bab');
             $kelas->gambar = $filename;
             $kelas->slug = Str::slug($request->kelas);
             $kelas->save();
@@ -115,7 +117,8 @@ class KelasController extends Controller
         $validator = Validator::make($request->all(), [
             'kelas'     => 'required|unique:App\Kelas,kelas,'.$kelas->id,
             'gambar'    => 'image',
-            'deskripsi' => 'required'
+            'deskripsi' => 'required',
+            'bab'       => 'required'
         ]);
 
         if($validator->fails()) {
@@ -133,6 +136,7 @@ class KelasController extends Controller
                     'kelas'     => $request->kelas,
                     'gambar'    => $filename,
                     'deskripsi' => $request->deskripsi,
+                    'bab'       => $request->bab,
                     'slug'      => Str::slug($request->kelas)
                 ];
             } else {
@@ -140,6 +144,7 @@ class KelasController extends Controller
                     'kelas'     => $request->kelas,
                     // 'gambar'    => Storage::disk('local')->putFileAs('public/kelas', $image, $filename),
                     'deskripsi' => $request->deskripsi,
+                    'bab'       => $request->bab,
                     'slug'      => Str::slug($request->kelas)
                 ];
             }
