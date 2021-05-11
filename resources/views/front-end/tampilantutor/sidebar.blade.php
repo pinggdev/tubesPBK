@@ -25,6 +25,9 @@
                                 </li>
                             @endif   
                         @endforeach
+                        <li class="submenu-item ">
+                            <a href="{{ route('kuis', $kelas->id) }}">Kuis</a> 
+                        </li>
                     </ul>
                 </li>
                 @endfor                     

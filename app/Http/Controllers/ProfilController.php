@@ -19,4 +19,9 @@ class ProfilController extends Controller
     {
         return view('front-end.tutorial', ['materi' => $materi, 'kelas' => $kelas]);
     }
+    
+    public function kuis(Kelas $kelas)
+    {
+        return view('front-end.kuis', ['kelas' => $kelas]);
+    }
 }

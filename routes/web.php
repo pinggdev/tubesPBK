@@ -29,5 +29,6 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
 Route::group(['middleware' => ['auth', 'checkRole:member']], function () {
     Route::get('/profil', 'ProfilController@kelas_saya');
     Route::get('/tutorial/{kelas}/{materi}', 'ProfilController@tutor')->name('tutorial');
+    Route::get('/kuis/{kelas}', 'ProfilController@kuis')->name('kuis');
 });
 

@@ -14,7 +14,7 @@
                 @if (auth()->user()->role == 'admin')
                     <h3>Dashboard Admin</h3>
                 @else
-                    <h3>Belajar C++ Dasar</h3>
+                    {{-- <h3>Belajar C++ Dasar</h3> --}}
                 @endif
             </div>
             <div class="page-content">
