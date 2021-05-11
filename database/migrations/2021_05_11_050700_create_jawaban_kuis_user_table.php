@@ -15,6 +15,7 @@ class CreateJawabanKuisUserTable extends Migration
     {
         Schema::create('jawaban_kuis_user', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
             $table->integer('kuis_id');
             $table->integer('jawaban_kuis_id');
             $table->string('jawaban_user');
