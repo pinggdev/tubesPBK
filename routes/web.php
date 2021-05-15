@@ -24,6 +24,7 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
     Route::resource('materi', 'MateriController');
     Route::resource('user', 'UserController');
     Route::resource('kuis', 'KuisController');
+    Route::resource('option', 'OptionController');
     Route::get('/home', 'HomeController@index')->name('home');
 });
 

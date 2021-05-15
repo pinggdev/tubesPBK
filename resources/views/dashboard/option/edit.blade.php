@@ -3,53 +3,54 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h4 class="card-title">Tambah Kuis</h4>
+            <h4 class="card-title">Edit Option</h4>
         </div>
         <div class="card-content">
             <div class="card-body">
-                <form action="{{ route('kuis.store') }}" method="POST" class="form form-horizontal" enctype="multipart/form-data">
+                <form action="{{ route('option.update', $option->id) }}" method="POST" class="form form-horizontal" enctype="multipart/form-data">
                     @csrf
+                    @method('PATCH')
                     <div class="form-body">
                         <div class="row">
 
                             <div class="col-md-4">
-                                <label>Kelas</label>
+                                <label>Soal</label>
                             </div>
                             <fieldset class=" col-md-8 form-group">
-                                <select class="form-select @error('kelas_id') {{ 'is-invalid' }} @enderror" id="basicSelect" name="kelas_id">
-                                    <option value="">Pilih Kelas</option>    
-                                    @foreach ($kelas as $kls)
-                                        <option value="{{ $kls->id }}">{{ $kls->kelas }}</option>    
+                                <select class="form-select @error('kuis_id') {{ 'is-invalid' }} @enderror" id="basicSelect" name="kuis_id">
+                                    <option value="">Pilih Soal</option>    
+                                    @foreach ($kuis as $ks)
+                                        <option value="{{ $ks->id }}" @if($option->kuis_id == $ks->id) selected @endif>{!! $ks->soal !!}</option>    
                                     @endforeach
                                 </select>
-                                @error('kelas_id')
+                                @error('kuis_id')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </fieldset>
 
                             <div class="col-md-4">
-                                <label>Soal</label>
+                                <label>Option</label>
                             </div>
                             <div class="col-md-8 form-group">
-                                <textarea class="form-control @error('soal') {{ 'is-invalid' }} @enderror" id="teks" rows="3" name="soal">{{ old('soal') }}</textarea>
-                                @error('soal')
+                                <textarea class="form-control @error('option') {{ 'is-invalid' }} @enderror" id="teks" rows="3" name="option">{{ old('option') ?? $option->option ?? '' }}</textarea>
+                                @error('option')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
 
                             <div class="col-md-4">
-                                <label>Bab Kuis</label>
+                                <label>Point</label>
                             </div>
                             <div class="col-md-8 form-group">
-                                <input type="number" class="form-control @error('babkuis') {{ 'is-invalid' }} @enderror" name="babkuis" value="{{ old('babkuis') }}">
-                                @error('babkuis')
+                                <input type="number" class="form-control @error('points') {{ 'is-invalid' }} @enderror" name="points" value="{{ old('points') ?? $option->points ?? '' }}">
+                                @error('points')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
 
                             <div class="col-sm-12 d-flex justify-content-end">
-                                <button type="submit" class="btn btn-primary me-1 mb-1">Tambah</button>
-                                <a href="{{ route('kuis.index') }}" class="btn btn-light-secondary me-1 mb-1">Batal</a>
+                                <button type="submit" class="btn btn-primary me-1 mb-1">Edit</button>
+                                <a href="{{ route('option.index') }}" class="btn btn-light-secondary me-1 mb-1">Batal</a>
                             </div>
                         </div>
                     </div>
