@@ -12,7 +12,7 @@
                     <a href="{{ route('kuis.create') }}" class="btn btn-primary btn-sm align-self-center">Tambah Kuis</a>
                 </div>
                 <div class="col-4">
-                    <form method="get" action="{{ route('kelas.index') }}">
+                    <form method="get" action="{{ route('kuis.index') }}">
                         <div class="input-group">
                             <input type="text" class="form-control form-control-sm" name="q" value="{{ $request['q'] ?? '' }}">
                             <div class="input-group-append">
@@ -40,7 +40,7 @@
                                 <tr>
                                     <td scope="row" style="vertical-align: middle;">{{ ($kuis->currentPage() - 1) * $kuis->perPage() + $loop->iteration }}</td>
                                     <td class="text-bold-500">{{ $ks->kelas->kelas }}</td>
-                                    <td class="text-bold-500">{{ $ks->soal }}</td>
+                                    <td class="text-bold-500">{!! $ks->soal !!}</td>
                                     <td class="text-bold-500">{{ $ks->babkuis}}</td>
                                     <td class="text-bold-500">
                                         <form action="{{ route('kuis.destroy', $ks->id) }}" method="POST">

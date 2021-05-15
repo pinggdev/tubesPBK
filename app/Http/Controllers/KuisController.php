@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Kuis;
 use App\Kelas;
-use App\JawabanKuis;
-use App\KuisPilihan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -22,7 +20,7 @@ class KuisController extends Controller
 
 
         $kuis = $kuis->when($q, function($query) use ($q) {
-            return $query->where('pertanyaan', 'like', '%' .$q. '%');
+            return $query->where('soal', 'like', '%' .$q. '%');
         })
         ->paginate(10);
 
@@ -57,13 +55,9 @@ class KuisController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'pertanyaan'        => 'required|unique:App\Kuis,pertanyaan',
             'kelas_id'          => 'required',
+            'soal'        => 'required|unique:App\Kuis,soal',
             'babkuis'           => 'required',
-            'pilihan_a'         => 'required',
-            'pilihan_b'         => 'required',
-            'pilihan_c'         => 'required',
-            'jawaban_benar'     => 'required'
         ]);
 
         if($validator->fails()) {
@@ -73,24 +67,7 @@ class KuisController extends Controller
                     ->withInput();
         } else {
             // insert ke table kuis
-            $kuis = new Kuis;
-            $kuis->pertanyaan = $request->input('pertanyaan');
-            $kuis->kelas_id = $request->input('kelas_id');
-            $kuis->babkuis = $request->input('babkuis');
-            $kuis->save();
-
-            //insert ke table pilihan
-            $request->request->add(['kuis_id' => $kuis->id]);
-            $kuis_pilihan = KuisPilihan::create($request->all());
-            $kuis_pilihan->pilihan_a = $request->input('pilihan_a');
-            $kuis_pilihan->pilihan_b = $request->input('pilihan_b');
-            $kuis_pilihan->pilihan_c = $request->input('pilihan_c');
-            $kuis_pilihan->save();
-
-            //insert ke table jawaban_kuis
-            $jawaban_kuis = JawabanKuis::create($request->all());
-            $jawaban_kuis->jawaban_benar = $request->input('jawaban_benar');
-            $jawaban_kuis->save();
+            $kuis = Kuis::create($request->all());
 
             return redirect()->route('kuis.index');
         }  
@@ -133,16 +110,10 @@ class KuisController extends Controller
     public function update(Request $request, $id)
     {
         $kuis = Kuis::find($id);
-        $kuis_pilihan = KuisPilihan::find($id);
-        $jawaban_kuis = JawabanKuis::find($id);
         $validator = Validator::make($request->all(), [
-            'pertanyaan'        => 'required|unique:App\Kuis,pertanyaan,'.$kuis->id,
             'kelas_id'          => 'required',
+            'soal'        => 'required|unique:App\Kuis,soal,'.$kuis->id,
             'babkuis'           => 'required',
-            'pilihan_a'         => 'required',
-            'pilihan_b'         => 'required',
-            'pilihan_c'         => 'required',
-            'jawaban_benar'     => 'required'
         ]);
 
         if($validator->fails()) {
@@ -151,25 +122,8 @@ class KuisController extends Controller
                     ->withErrors($validator)
                     ->withInput();
         } else {
-            // insert ke table kuis
-            // $kuis = new Kuis;
-            $kuis->pertanyaan = $request->input('pertanyaan');
-            $kuis->kelas_id = $request->input('kelas_id');
-            $kuis->babkuis = $request->input('babkuis');
-            $kuis->save();
 
-            //insert ke table pilihan
-            // $request->request->add(['kuis_id' => $kuis->id]);
-            // $kuis_pilihan = KuisPilihan::update($request->all());
-            $kuis_pilihan->pilihan_a = $request->input('pilihan_a');
-            $kuis_pilihan->pilihan_b = $request->input('pilihan_b');
-            $kuis_pilihan->pilihan_c = $request->input('pilihan_c');
-            $kuis_pilihan->save();
-
-            //insert ke table jawaban_kuis
-            // $jawaban_kuis = JawabanKuis::update($request->all());
-            $jawaban_kuis->jawaban_benar = $request->input('jawaban_benar');
-            $jawaban_kuis->save();
+            $kuis->update($request->all());
 
             return redirect()->route('kuis.index');
         }  
@@ -184,11 +138,7 @@ class KuisController extends Controller
     public function destroy($id)
     {
         $kuis = Kuis::find($id);
-        $kuis_pilihan = KuisPilihan::find($id);
-        $jawaban_kuis = JawabanKuis::find($id);
         $kuis->delete();
-        $kuis_pilihan->delete();
-        $jawaban_kuis->delete();
         return redirect()->route('kuis.index');
     }
 }
