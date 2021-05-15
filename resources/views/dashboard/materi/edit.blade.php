@@ -24,28 +24,18 @@
                             <div class="col-md-4">
                                 <label>Bab Materi</label>
                             </div>
-                            <fieldset class=" col-md-8 form-group">
-                                <select class="form-select @error('babmateri') {{ 'is-invalid' }} @enderror" id="basicSelect" name="babmateri">  
-                                    <option value="">Pilih Bab</option>    
-                                    @foreach ($kelas as $kls)
-                                        @for ($i = 1; $i <= $kls->bab; $i++)
-                                            <option value="{{ $i }}" @if($materi->babmateri == $i) selected @endif>Bab {{ $i }}</option>    
-                                        @endfor
-                                    @endforeach 
-                                    {{-- @foreach ($kelas as $kls)
-                                        <option value="{{ $kls->id }}" @if($materi->babmateri == $kls->id) selected @endif>{{ $kls->kelas }}</option>    
-                                    @endforeach --}}
-                                </select>
+                            <div class="col-md-8 form-group">
+                                <input type="number" class="form-control @error('babmateri') {{ 'is-invalid' }} @enderror" name="babmateri" value="{{ old('babmateri') ?? $materi->babmateri ?? '' }}">
                                 @error('babmateri')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
-                            </fieldset>
+                            </div>
                             <div class="col-md-4">
                                 <label>Kelas</label>
                             </div>
                             <fieldset class=" col-md-8 form-group">
                                 <select class="form-select @error('kelas_id') {{ 'is-invalid' }} @enderror" id="basicSelect" name="kelas_id">
-                                    <option value="">Pilih Kategori</option>    
+                                    <option value="">Pilih Kelas</option>    
                                     @foreach ($kelas as $kls)
                                         <option value="{{ $kls->id }}" @if($materi->kelas_id == $kls->id) selected @endif>{{ $kls->kelas }}</option>    
                                     @endforeach

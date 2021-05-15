@@ -23,12 +23,15 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
     Route::resource('kelas', 'KelasController');
     Route::resource('materi', 'MateriController');
     Route::resource('user', 'UserController');
+    Route::resource('kuis', 'KuisController');
     Route::get('/home', 'HomeController@index')->name('home');
 });
 
 Route::group(['middleware' => ['auth', 'checkRole:member']], function () {
     Route::get('/profil', 'ProfilController@kelas_saya');
-    Route::get('/tutorial/{kelas}/{materi}', 'ProfilController@tutor')->name('tutorial');
-    Route::get('/kuis/{kelas}', 'ProfilController@kuis')->name('kuis');
+    Route::get('/tutorial-homepage/{kelas}', 'ProfilController@tutorhp');
+    Route::get('/tutorial/{kelas}/{materi}', 'ProfilController@tutor');
+    Route::get('/kuisbab/{kelas}/{babkuis}', 'ProfilController@kuisbab');
+    Route::post('/tutorial-homepage/{kelas}', 'ProfilController@submitkuis')->name('submitkuis');
 });
 

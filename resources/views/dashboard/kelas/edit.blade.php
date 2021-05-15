@@ -31,7 +31,7 @@
                                 @enderror
                             </div>
                             <div class="col-md-4">
-                                <label>Bab</label>
+                                <label>Banyak Bab</label>
                             </div>
                             <div class="col-md-8 form-group">
                                 <input type="text" class="form-control  @error('bab') {{ 'is-invalid' }} @enderror" name="bab" placeholder="Kelas" value="{{ old('bab') ?? $kelas->bab ?? '' }}">

@@ -22,4 +22,5 @@ class Kelas extends Model
     {
         return $this->hasMany('App\Kuis');
     }
+
 }

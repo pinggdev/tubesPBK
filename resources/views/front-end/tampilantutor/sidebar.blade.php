@@ -25,12 +25,18 @@
                                 </li>
                             @endif   
                         @endforeach
-                        <li class="submenu-item ">
-                            <a href="{{ route('kuis', $kelas->id) }}">Kuis</a> 
-                        </li>
                     </ul>
+                    {{-- @foreach ($kuis as $ks) --}}
+                    @php
+                        // $i = $ks->babkuis
+                    @endphp
+                    <a href="/kuisbab/{{ $kelas->id }}/{{ $i }}" class='sidebar-link'>
+                        <i class="bi bi-book-fill"></i>
+                        <span>Kuis {{ $i}}</span>
+                    </a>
+                    {{-- @endforeach --}}
                 </li>
-                @endfor                     
+                @endfor       
             </ul>
         </div>
         <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>

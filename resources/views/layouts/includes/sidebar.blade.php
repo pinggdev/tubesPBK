@@ -92,6 +92,18 @@
                         </a>
                     </li>
 
+                    <li class="sidebar-item  has-sub {{ Request::is('user') ? 'active' : '' }}">
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-person-fill"></i>
+                            <span>User</span>
+                        </a>
+                        <ul class="submenu">
+                            <li class="submenu-item ">
+                                <a href="{{ route('user.index') }}">List User</a>
+                            </li>
+                        </ul>
+                    </li>
+
                     <li class="sidebar-item  has-sub {{ Request::is('kelas') ? 'active' : '' }}">
                         <a href="#" class='sidebar-link'>
                             <i class="bi bi-people-fill"></i>
@@ -116,17 +128,18 @@
                         </ul>
                     </li>
 
-                    <li class="sidebar-item  has-sub {{ Request::is('user') ? 'active' : '' }}">
+                    <li class="sidebar-item  has-sub {{ Request::is('kuis') ? 'active' : '' }}">
                         <a href="#" class='sidebar-link'>
-                            <i class="bi bi-person-fill"></i>
-                            <span>User</span>
+                            <i class="bi bi-question-circle-fill"></i>
+                            <span>Kuis</span>
                         </a>
                         <ul class="submenu">
                             <li class="submenu-item ">
-                                <a href="{{ route('user.index') }}">List User</a>
+                                <a href="{{ route('kuis.index') }}">List Kuis</a>
                             </li>
                         </ul>
                     </li>
+
                 </ul>
             @endif
 

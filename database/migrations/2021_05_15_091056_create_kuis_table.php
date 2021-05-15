@@ -13,12 +13,14 @@ class CreateKuisTable extends Migration
      */
     public function up()
     {
+        Schema::enableForeignKeyConstraints();
         Schema::create('kuis', function (Blueprint $table) {
             $table->id();
-            $table->integer('kelas_id');
-            $table->integer('babkuis');
-            $table->text('pertanyaan');
-            $table->enum('pilihan', ['a', 'b', 'c', 'd']);
+            // $table->unsignedInteger('kelas_id');
+            // $table->foreign('kelas_id')->references('id')->on('kelas');
+            $table->foreignId('kelas_id')->constrained('kelas');
+            $table->longText('soal');
+            $table->string('babkuis');
             $table->timestamps();
         });
     }

@@ -3,13 +3,13 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        <h4 class="card-title">Kelas</h4>
+        <h4 class="card-title">Kuis</h4>
     </div>
     <div class="card-content">
         <div class="card-body">
             <div class="row">
                 <div class="col-8 align-self-center">
-                    <a href="{{ route('kelas.create') }}" class="btn btn-primary btn-sm align-self-center">Tambah Kelas</a>
+                    <a href="{{ route('kuis.create') }}" class="btn btn-primary btn-sm align-self-center">Tambah Kuis</a>
                 </div>
                 <div class="col-4">
                     <form method="get" action="{{ route('kelas.index') }}">
@@ -24,33 +24,29 @@
             </div>
             <!-- Table with outer spacing -->
             <div class="table-responsive">
-                @if ($kelas->total())
+                @if ($kuis->total())
                     <table class="table table-lg">
                         <thead>
                             <tr>
                                 <th>NO</th>
+                                <th>PERTANYAAN</th>
                                 <th>KELAS</th>
-                                <th>DESKRIPSI</th>
-                                <th>BANYAK BAB</th>
-                                <th>GAMBAR</th>
+                                <th>BAB KUIS</th>
                                 <th>ACTION</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($kelas as $kls)
+                            @foreach ($kuis as $ks)
                                 <tr>
-                                    <td scope="row" style="vertical-align: middle;">{{ ($kelas->currentPage() - 1) * $kelas->perPage() + $loop->iteration }}</td>
-                                    <td class="text-bold-500">{{ $kls->kelas }}</td>
-                                    <td class="text-bold-500">{{ $kls->deskripsi }}</td>
-                                    <td class="text-bold-500">{{ $kls->bab }}</td>
-                                    <td>
-                                        <img src="{{ asset('storage/kelas/'.$kls->gambar) }}" class="img-fluid" style="width: 100px;">
-                                    </td>
+                                    <td scope="row" style="vertical-align: middle;">{{ ($kuis->currentPage() - 1) * $kuis->perPage() + $loop->iteration }}</td>
+                                    <td class="text-bold-500">{{ $ks->pertanyaan }}</td>
+                                    <td class="text-bold-500">{{ $ks->kelas->kelas }}</td>
+                                    <td class="text-bold-500">{{ $ks->babkuis}}</td>
                                     <td class="text-bold-500">
-                                        <form action="{{ route('kelas.destroy', $kls->id) }}" method="POST">
+                                        <form action="{{ route('kuis.destroy', $ks->id) }}" method="POST">
                                             @csrf
                                             @method('delete')
-                                            <a href="{{ route('kelas.edit', $kls->id) }}" class="btn btn-success btn-sm">Edit</a>
+                                            <a href="{{ route('kuis.edit', $ks->id) }}" class="btn btn-success btn-sm">Edit</a>
                                             <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                                         </form>
                                     </td>
@@ -58,7 +54,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    {{ $kelas->appends($request)->links() }}
+                    {{ $kuis->appends($request)->links() }}
                 @endif
             </div>
         </div>
