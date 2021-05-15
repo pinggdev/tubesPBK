@@ -44,19 +44,4 @@ class ProfilController extends Controller
             ]);
     }
 
-    public function submitkuis(Request $request, JawabanKuisUser $jawaban_kuis_user, Kelas $kelas)
-    {
-        // $jawaban_kuis = JawabanKuis::create($request->all());
-        $kuis = Kuis::get();
-        $jawaban_kuis = JawabanKuis::get();
-        
-        $jawaban_kuis_user->user_id = Auth::user()->id;
-        $jawaban_kuis_user->kuis_id = $kuis->first()->id;
-        $jawaban_kuis_user->jawaban_kuis_id = $jawaban_kuis->first()->id;
-        $jawaban_kuis_user->jawaban_user = $request->input($kuis->first()->id);
-        $jawaban_kuis_user->save();
-        // dd($jawaban_kuis_user);
-
-        return view('front-end.tutorial-homepage',['kelas' => $kelas]);
-    }
 }

@@ -29,8 +29,8 @@
                         <thead>
                             <tr>
                                 <th>NO</th>
-                                <th>PERTANYAAN</th>
                                 <th>KELAS</th>
+                                <th>SOAL</th>
                                 <th>BAB KUIS</th>
                                 <th>ACTION</th>
                             </tr>
@@ -39,8 +39,8 @@
                             @foreach ($kuis as $ks)
                                 <tr>
                                     <td scope="row" style="vertical-align: middle;">{{ ($kuis->currentPage() - 1) * $kuis->perPage() + $loop->iteration }}</td>
-                                    <td class="text-bold-500">{{ $ks->pertanyaan }}</td>
                                     <td class="text-bold-500">{{ $ks->kelas->kelas }}</td>
+                                    <td class="text-bold-500">{{ $ks->soal }}</td>
                                     <td class="text-bold-500">{{ $ks->babkuis}}</td>
                                     <td class="text-bold-500">
                                         <form action="{{ route('kuis.destroy', $ks->id) }}" method="POST">

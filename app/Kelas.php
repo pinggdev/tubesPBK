@@ -20,7 +20,7 @@ class Kelas extends Model
 
     public function kuis()
     {
-        return $this->hasMany('App\Kuis');
+        return $this->hasMany('App\Kuis', 'kelas_id', 'id');
     }
 
 }

@@ -45,4 +45,9 @@ class User extends Authenticatable
 
         return asset('storage/user/'.$this->avatar);
     }
+
+    public function results()
+    {
+        return $this->hasMany('App\Result', 'user_id', 'id');
+    }
 }
