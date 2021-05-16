@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use App\Kuis;
 use App\Kelas;
 use App\Materi;
+use App\Option;
 use App\JawabanKuis;
 use App\KuisPilihan;
 use App\JawabanKuisUser;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class ProfilController extends Controller
 {
@@ -23,7 +24,11 @@ class ProfilController extends Controller
 
     public function tutorhp(Kelas $kelas)
     {
-        return view('front-end.tutorial-homepage', ['kelas' => $kelas]);
+        $kuis = Kuis::get();
+        return view('front-end.tutorial-homepage', [
+            'kelas' => $kelas,
+            'kuis' => $kuis,
+            ]);
     }
 
     public function tutor(Kelas $kelas, Materi $materi)
@@ -33,15 +38,42 @@ class ProfilController extends Controller
     
     public function kuisbab(Kelas $kelas, $babkuis)
     {
-        $data = Kuis::where('babkuis', $babkuis)->orWhere('kelas_id', $kelas)->get();
-        $kuis = Kuis::all();
-        $kuis_pilihan = KuisPilihan::all();
+        $data = Kuis::with(['options' => function($query) {
+            $query->inRandomOrder();
+                // ->with(['options' => function($query) {
+                //     $query->inRandomOrder();
+                // }]);
+        }])
+        ->where('babkuis', $babkuis)->orWhere('kelas_id', $kelas)->get();
+
+        // $kuis = Kuis::all();
         return view('front-end.kuis', [
             'kelas'         => $kelas,
             'data'          => $data,
-            'kuis'          => $kuis,
-            'kuis_pilihan'  => $kuis_pilihan
+            // 'kuis'          => $kuis,
             ]);
+    }
+
+    public function storekuis(Request $request)
+    {
+        $kelas = Kelas::all();
+        $option = Option::find(array_values($request->input('kuis')));
+
+        $result = auth()->user()->results()->create([
+            'total_points' => $option->sum('points')
+        ]);
+
+        $kuis = $option->mapWithKeys(function($option) {
+            return [$option->kuis_id => [
+                'option_id' => $option->id,
+                'points'    => $option->points
+                ]
+            ];
+        })->toArray();
+        
+        $result->kuis()->sync($kuis);
+
+        return redirect()->route('tutorhp', $kelas->first()->id);
     }
 
 }

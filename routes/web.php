@@ -30,9 +30,9 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
 
 Route::group(['middleware' => ['auth', 'checkRole:member']], function () {
     Route::get('/profil', 'ProfilController@kelas_saya');
-    Route::get('/tutorial-homepage/{kelas}', 'ProfilController@tutorhp');
+    Route::get('/tutorial-homepage/{kelas}', 'ProfilController@tutorhp')->name('tutorhp');
     Route::get('/tutorial/{kelas}/{materi}', 'ProfilController@tutor');
     Route::get('/kuisbab/{kelas}/{babkuis}', 'ProfilController@kuisbab');
-    Route::post('/tutorial-homepage/{kelas}', 'ProfilController@submitkuis')->name('submitkuis');
+    Route::post('/storekuis', 'ProfilController@storekuis')->name('storekuis');
 });
 
