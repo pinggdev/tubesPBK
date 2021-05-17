@@ -216,6 +216,108 @@ body {
     font-weight: $light;
 }
 
+.rincian-kelas {
+    margin-top: 150px;
+}
+
+.rincian-kelas .header-materi {
+    font-size: 18px;
+    font-weight: $bold;
+    margin-top: 30px;
+}
+
+.rincian-kelas .container .listvideo .col-md-8 {
+    margin-top: 60px;
+}
+
+.rincian-kelas .container .listvideo .col-md-4 {
+    margin-top: 60px;
+}
+
+.rincian-kelas .container .header h3 {
+    font-size: $size36;
+    font-weight: $bold;
+}
+
+.rincian-kelas .container .header p {
+    font-size: $size18;
+    font-weight: $light;
+}
+
+.rincian-kelas .container .row  {
+    margin-top: -10px;
+}
+
+.rincian-kelas .container .row .kotak-list-materi{
+    border-radius: 20px;
+    box-shadow: 0px 0px 6px rgb(212, 212, 212);
+}
+
+.rincian-kelas .container .row .list-materi {
+    // border-radius: 20px;
+    padding: 10px;
+    width: 100%;
+}
+
+.rincian-kelas .container .row .list-materi .permateri {
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: #F0F0F0;
+    margin-top: 10px;
+    font-size: 15px;
+    font-weight: $medium;
+}
+
+.rincian-kelas .container .row .list-materi a .permateri {
+    color: $hitam;
+}
+
+.rincian-kelas .container .row .list-materi a:hover{
+    text-decoration: none;
+}
+.rincian-kelas .container .row .list-materi .permateri:hover{
+    background-color: #e0e0e0;
+}
+
+.rincian-kelas .container .row .lihat-kelas  {
+    width: 100% ;
+    padding: 10px 30px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: $biru;
+    margin-top: 30px;
+}
+
+.rincian-kelas .container .row  .lihat-kelas:hover {
+    background-color: #2a518b;
+}
+
+.rincian-kelas .container .row  .lihat-kelas  {
+    color: white;
+    text-align: center;
+    font-weight: $bold;
+    font-size: $size18;
+}
+
+.rincian-kelas .container .row  .lihat-kelas:hover {
+    text-decoration: none;
+}
+
+.rincian-kelas .container .deskripsi {
+    margin-top: 50px;
+}
+
+.rincian-kelas .container .deskripsi h5 {
+    font-size: 24px;
+    font-weight: $bold;
+}
+
+.rincian-kelas .container .deskripsi p {
+    font-size: 18px;
+    font-weight: $size18;
+    margin-top: 20px;
+}
+
 footer {
     background: $biru;
     margin-top: 240px;

@@ -21,7 +21,7 @@ Route::get('/', function () {
 // });
 
 Route::get('/kelas-page', 'PageController@kelaspage');
-Route::get('/riniankelas/{kelas}', 'PageController@rinciankelas')->name('rincian.kelas');
+Route::get('/rinciankelas/{kelas}', 'PageController@rinciankelas')->name('rincian.kelas');
 
 Auth::routes();
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Kelas;
+use App\Materi;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -17,9 +18,10 @@ class PageController extends Controller
 
     public function rinciankelas(Kelas $kelas)
     {
-        
+        $materi = Materi::get();
         return view('front-end.rincian-kelas', [
-            'kelas'     => $kelas
+            'kelas'      => $kelas,
+            'materi'     => $materi,
         ]);
     }
 }
