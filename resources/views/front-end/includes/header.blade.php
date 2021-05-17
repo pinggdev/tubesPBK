@@ -30,7 +30,7 @@
                         <a class="nav-link" href="/kelas-page">Kelas</span></a>
                     </li>
                     <li>
-                        <a class="nav-link" href="#">Tentang</a>
+                        <a class="nav-link" href="/tentang">Tentang</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav nav-right kanan">

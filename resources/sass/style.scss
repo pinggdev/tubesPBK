@@ -318,6 +318,17 @@ body {
     margin-top: 20px;
 }
 
+.tentang h3 {
+    margin-top: 150px;
+    font-size: 36px;
+    font-weight: $bold;
+}
+
+.tentang .row .col-md-5 p {
+    font-size: 18px;
+    font-weight: $light;
+}
+
 footer {
     background: $biru;
     margin-top: 240px;

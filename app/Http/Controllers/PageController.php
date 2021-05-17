@@ -24,4 +24,9 @@ class PageController extends Controller
             'materi'     => $materi,
         ]);
     }
+
+    public function tentang()
+    {
+        return view('front-end.tentang');
+    }
 }
