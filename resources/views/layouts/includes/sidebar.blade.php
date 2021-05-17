@@ -47,7 +47,7 @@
                 <ul class="menu">
                     <li class="sidebar-item {{ Request::is('profil') ? 'active' : '' }}">
                         <a href="/profil" class='sidebar-link'>
-                            <i class="bi bi-grid-fill"></i>
+                            <i class="bi bi-people-fill"></i>
                             <span>Kelas Saya</span>
                         </a>
                     </li>
@@ -55,7 +55,7 @@
                 <ul class="menu">
                     <li class="sidebar-item {{ Request::is('/') ? 'active' : '' }}">
                         <a href="/" class='sidebar-link'>
-                            <i class="bi bi-grid-fill"></i>
+                            <i class="bi bi-house-door-fill"></i>
                             <span>Beranda</span>
                         </a>
                     </li>
@@ -63,7 +63,7 @@
                 <ul class="menu">
                     <li class="sidebar-item {{ Request::is('/') ? 'active' : '' }}">
                         <a href="#" class='sidebar-link'>
-                            <i class="bi bi-grid-fill"></i>
+                            <i class="bi bi-gear-fill"></i>
                             <span>Pengaturan</span>
                         </a>
                     </li>
@@ -71,7 +71,7 @@
                 <ul class="menu">
                     <li class="sidebar-item {{ Request::is('/') ? 'active' : '' }}">
                         <a href="{{ route('logout') }}" class='sidebar-link' onclick="event.preventDefault(); document.getElementById('logout-form').submit();">                         
-                            <i class="bi bi-grid-fill"></i>
+                            <i class="bi bi-door-open-fill"></i>
                             <span>Keluar</span>
                         </a>
 
