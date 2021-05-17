@@ -6,6 +6,7 @@ use App\Kuis;
 use App\Kelas;
 use App\Materi;
 use App\Option;
+use App\Result;
 use App\JawabanKuis;
 use App\KuisPilihan;
 use App\JawabanKuisUser;
@@ -73,7 +74,21 @@ class ProfilController extends Controller
         
         $result->kuis()->sync($kuis);
 
-        return redirect()->route('tutorhp', $kelas->first()->id);
+        return redirect()->route('hasil.show', $result->id);
+    }
+
+    public function tampilhasil($result_id, Kelas $kelas)
+    {
+        $result = Result::whereHas('user', function ($query) {
+            $query->whereId(auth()->id());
+        })->findOrFail($result_id);
+
+        // $kelas = Kelas::all();
+    
+    return view('front-end.hasilkuis', [
+        'result' => $result,
+        'kelas' => $kelas,
+    ]);
     }
 
 }

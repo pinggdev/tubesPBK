@@ -141,6 +141,81 @@ body {
     font-size: 18px;
 }
 
+.kelas .container  .header h3 {
+    margin-top: 150px;
+    font-size: $size36;
+    font-weight: $bold;
+}
+
+.kelas .container p {
+    font-size: $size18;
+    font-weight: $light;
+}
+
+.kelas .container .pencarian {
+    margin-top: 60px;
+}
+
+.kelas .container .pencarian input {
+    border-radius: 20px;
+    width: 900px;
+    height: 47px;
+    padding: 5px;
+    box-shadow: px 0px 6px rgba(29, 64, 118, 0.1);
+}
+
+.kelas .container .pencarian .btn{
+    border-radius: 20px;
+    width: 142px;
+    padding: 11px 10px;
+    box-shadow: px 0px 6px rgba(29, 64, 118, 0.1);
+    background-color: $biru !important;
+    color: white;
+}
+
+.kelas .container-fluid .row .list-kelas {
+    margin-top: 120px;
+}
+
+.kelas .list-kelas .col-3-md {
+    padding: 25px;
+}
+
+.kelas .list-kelas .col-3-md .card {
+    border-radius: 20px !important;
+    width: 100%;
+    height: 450px !important;
+}
+
+.kelas .list-kelas .col-3-md .card .kelas{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px ;
+    max-width: 381px;
+    height: 280px;
+}
+
+.kelas .list-kelas .col-3-md .card .card-body {
+    padding: 20px;
+}
+
+.kelas .list-kelas .col-3-md .card .card-body h5 {
+    margin-top: 15px;
+    color: $hitam;
+    font-size: $size18;
+    font-weight: $medium;
+}
+
+.kelas a:hover {
+    text-decoration: none;
+}
+
+.kelas .list-kelas .col-3-md .card .card-body p {
+    margin-top: 15px;
+    color: $hitam;
+    font-size: $size18;
+    font-weight: $light;
+}
+
 footer {
     background: $biru;
     margin-top: 240px;
@@ -274,6 +349,66 @@ footer .container-fluid .row .isi-footer ul li a{
     }
     
     .kenapa .card-kenapa .container .col-md-8 p {
+        font-size: 14px;
+    }
+
+    .kelas .container  .header h3 {
+        margin-top: 150px;
+        font-size: 24px;
+    }
+    
+    .kelas .container p {
+        font-size: 14px;
+    }
+    
+    .kelas .container .pencarian {
+        margin-top: 40px;
+    }
+    
+    .kelas .container .pencarian input {
+        border-radius: 20px;
+        width: 100%;
+        height: 30px;
+        padding: 5px;
+    }
+    
+    .kelas .container .pencarian .btn{
+        border-radius: 20px;
+        width: 100%;
+        padding: 5px 2px;
+        margin-top: 10px;
+    }
+    
+    .kelas .container-fluid .row .list-kelas {
+        margin-top: 90px;
+    }
+    
+    .kelas .list-kelas .col-3-md {
+        padding: 15px;
+    }
+    
+    .kelas .list-kelas .col-3-md .card {
+        border-radius: 20px !important;
+        width: 100%;
+        height: 365px !important;
+    }
+    
+    .kelas .list-kelas .col-3-md .card .kelas{
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px ;
+        max-width: 300px;
+        height: 240px;
+    }
+    
+    .kelas .list-kelas .col-3-md .card .card-body {
+        padding: 1px 5px;
+    }
+    
+    .kelas .list-kelas .col-3-md .card .card-body h5 {
+        font-size: 16px;
+    }
+    
+    .kelas .list-kelas .col-3-md .card .card-body p {
         font-size: 14px;
     }
     

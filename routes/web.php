@@ -16,6 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('front-end.landingPage');
 });
+// Route::get('/kelas-page', function() {
+//     return view('front-end.kelaspage');
+// });
+
+Route::get('/kelas-page', 'PageController@kelaspage');
+Route::get('/riniankelas/{kelas}', 'PageController@rinciankelas')->name('rincian.kelas');
 
 Auth::routes();
 
@@ -25,6 +31,7 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
     Route::resource('user', 'UserController');
     Route::resource('kuis', 'KuisController');
     Route::resource('option', 'OptionController');
+    Route::resource('hasil', 'HasilKuisController');
     Route::get('/home', 'HomeController@index')->name('home');
 });
 
@@ -34,5 +41,6 @@ Route::group(['middleware' => ['auth', 'checkRole:member']], function () {
     Route::get('/tutorial/{kelas}/{materi}', 'ProfilController@tutor');
     Route::get('/kuisbab/{kelas}/{babkuis}', 'ProfilController@kuisbab');
     Route::post('/storekuis', 'ProfilController@storekuis')->name('storekuis');
+    Route::get('/tampilhasil/{result_id}', 'ProfilController@tampilhasil')->name('hasil.show');
 });
 

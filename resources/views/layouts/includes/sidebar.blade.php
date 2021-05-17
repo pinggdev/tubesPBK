@@ -140,6 +140,9 @@
                             <li class="submenu-item ">
                                 <a href="{{ route('option.index') }}">List Option Kuis</a>
                             </li>
+                            <li class="submenu-item ">
+                                <a href="{{ route('hasil.index') }}">List Hasil Kuis</a>
+                            </li>
                         </ul>
                     </li>
 
