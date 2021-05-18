@@ -50,4 +50,14 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Result', 'user_id', 'id');
     }
+
+    public function forum()
+    {
+        return $this->hasMany('App\Forum');
+    }
+
+    public function komentar()
+    {
+        return $this->hasMany('App\Komentar');
+    }
 }
