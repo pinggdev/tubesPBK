@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Forum;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ForumController extends Controller
 {
@@ -14,7 +16,7 @@ class ForumController extends Controller
      */
     public function index()
     {
-        $forum = Forum::paginate(10);
+        $forum = Forum::orderBy('created_at', 'asc')->paginate(10);
         return view('front-end.forum.index', [
             'forum'     => $forum
         ]);
@@ -27,7 +29,7 @@ class ForumController extends Controller
      */
     public function create()
     {
-        //
+        return view('front-end.forum.form');
     }
 
     /**
@@ -36,9 +38,28 @@ class ForumController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Forum $forum)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'judul'       => 'required',
+            'konten'      => 'required'
+        ]);
+
+        if($validator->fails()) {
+            return redirect()
+                    ->route('forum.create')
+                    ->withErrors($validator)
+                    ->withInput();
+        } else {
+            $request->request->add(['user_id' => auth()->user()->id]);
+            $request->request->add(['slug' =>  Str::slug($request->judul)]);
+            // $forum->judul = $request->input('judul');
+            // $forum->slug = Str::slug($request->judul);
+            // $forum->konten = $request->input('konten');
+            $forum = Forum::create($request->all());
+
+            return redirect()->route('forum.index');
+        }  
     }
 
     /**

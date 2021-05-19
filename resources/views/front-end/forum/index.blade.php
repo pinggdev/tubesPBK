@@ -26,7 +26,7 @@
                         </h5>
                     </div>
                     <div class="col-md-6 text-right">
-                        <a href="" class="btn btn-primary">Tambah Pertanyaan</a>
+                        <a href="{{ route('forum.create') }}" class="btn btn-primary">Tambah Pertanyaan</a>
                     </div>
                 </div>
 

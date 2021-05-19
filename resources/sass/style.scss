@@ -433,6 +433,27 @@ body {
     color: red !important;
 }
 
+.forum form {
+    margin-top: 40px;
+}
+
+.forum form .btn-primary {
+    background-color: $biru;
+    margin-right: 20px;
+}
+
+.forum form .btn-light-secondary {
+    background-color: $secondary;
+}
+
+.forum form .btn-light-secondary:hover {
+    color: rgb(88, 88, 88);
+}
+
+.forum form .btn-primary:hover {
+    background-color: #2a518b !important;
+}
+
 footer {
     background: $biru;
     margin-top: 240px;

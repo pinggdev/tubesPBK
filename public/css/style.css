@@ -418,6 +418,27 @@ body {
   color: red !important;
 }
 
+.forum form {
+  margin-top: 40px;
+}
+
+.forum form .btn-primary {
+  background-color: #1D4076;
+  margin-right: 20px;
+}
+
+.forum form .btn-light-secondary {
+  background-color: #E0E0E0;
+}
+
+.forum form .btn-light-secondary:hover {
+  color: #585858;
+}
+
+.forum form .btn-primary:hover {
+  background-color: #2a518b !important;
+}
+
 footer {
   background: #1D4076;
   margin-top: 240px;
