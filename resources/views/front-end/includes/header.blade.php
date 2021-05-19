@@ -30,6 +30,9 @@
                         <a class="nav-link" href="/kelas-page">Kelas</span></a>
                     </li>
                     <li>
+                        <a class="nav-link" href="{{ route('forum.index') }}">Forum</a>
+                    </li>
+                    <li>
                         <a class="nav-link" href="/tentang">Tentang</a>
                     </li>
                 </ul>

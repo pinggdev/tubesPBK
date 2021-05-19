@@ -173,6 +173,10 @@ body {
     color: white;
 }
 
+.kelas .container .pencarian .btn:hover {
+    background-color: #2a518b !important;
+}
+
 .kelas .container-fluid .row .list-kelas {
     margin-top: 120px;
 }
@@ -327,6 +331,106 @@ body {
 .tentang .row .col-md-5 p {
     font-size: 18px;
     font-weight: $light;
+}
+
+.forum {
+    margin-top: 150px;
+}
+
+.forum .header h3 {
+    font-size: $size36;
+    font-weight: $bold;
+}
+
+.forum .header p {
+    font-size: $size18;
+    font-weight: $light;
+}
+
+.forum .container .pencarian {
+    margin-top: 60px;
+}
+
+.forum .container .pencarian input {
+    border-radius: 20px;
+    width: 930px;
+    height: 47px;
+    padding: 5px;
+    box-shadow: px 0px 6px rgba(29, 64, 118, 0.1);
+}
+
+.forum .container .pencarian .btn{
+    border-radius: 20px;
+    width: 142px;
+    padding: 11px 10px;
+    box-shadow: px 0px 6px rgba(29, 64, 118, 0.1);
+    background-color: $biru !important;
+    color: white;
+}
+
+.forum .container .pencarian .btn:hover {
+    background-color: #2a518b !important;
+}
+
+.forum .pertanyaan {
+    margin-top: 60px;
+}
+
+.forum .pertanyaan h5 {
+    font-size: 24px;
+    font-weight: $semibold;
+}
+
+.forum .pertanyaan .btn-primary {
+    background-color: $biru;
+    border-radius: 20px;
+    padding: 10px 40px;
+}
+
+.forum .pertanyaan .btn-primary:hover {
+    background-color: #2a518b !important;
+}
+
+.forum .list-forum {
+    margin-top: 80px;
+}
+
+.forum .border {
+    padding: 25px;
+}
+
+.forum .list-forum .judul-forum {
+    font-size: $size18;
+    color: $hitam;
+    font-weight: $medium;
+}
+
+.forum .list-forum .judul-forum:hover {
+    text-decoration: none;
+    color: rgb(88, 88, 88);
+}
+
+.forum .list-forum .data {
+    margin-top: 20px;
+}
+
+.forum .list-forum .data .like-cmt {
+    background-color: $biru;
+    padding: 7px 25px;
+    border-radius: 20px;
+    color: white;
+    font-size: $size18;
+    font-weight: $light;
+}
+
+.forum .list-forum .data .like-cmt:hover {
+    text-decoration: none;
+    background-color: #2a518b 
+}
+
+.forum .list-forum .data .icon {
+    width: 15%;
+    color: red !important;
 }
 
 footer {
