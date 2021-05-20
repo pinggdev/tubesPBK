@@ -433,6 +433,10 @@ body {
     color: red !important;
 }
 
+.forum .list-forum .data .timestamp {
+    color: #6e6e6e;
+}
+
 .forum form {
     margin-top: 40px;
 }
@@ -452,6 +456,56 @@ body {
 
 .forum form .btn-primary:hover {
     background-color: #2a518b !important;
+}
+
+.forum .rincian {
+    margin-top: 60px;
+}
+
+.forum .rincian h5 {
+    font-size: 24px;
+    font-weight: $semibold;
+    
+}
+
+.forum .rincian .nama-tanya {
+    font-size: 18px;
+    font-weight: $regular;
+}
+
+.forum .rincian .nama-tanya .timestamp {
+    font-size: 16px;
+    font-weight: $light;
+    color: #6e6e6e;
+}
+
+.forum .second {
+    font-size: 18px;
+    font-weight: $light;
+}
+
+.forum .second .konten {
+    text-align: justify;
+}
+
+.forum .second ul {
+    list-style: none;
+}
+
+.forum .second ul li .nama-komentar {
+    color: $hitam;
+    font-weight: $regular;
+}
+
+.forum .second ul li .isi-komentar {
+    text-align: justify;
+}
+
+.forum .second ul li .timestamp {
+    font-size: 16px;
+    font-weight: $light;
+    margin-top: -10px;
+    color: #6e6e6e;
 }
 
 footer {

@@ -41,7 +41,7 @@
                     @foreach ($forum as $frm)               
                         <div class="row border">
                             <div class="col-md-12">
-                                <a href="" class="judul-forum">
+                                <a href="/forum/{{ $frm->id }}/view" class="judul-forum">
                                     <img src="{{ $frm->user->getAvatar() }}" alt="" style="width: 20px; height: 20px; border-radius: 50%;">&nbsp;&nbsp;&nbsp;{{ $frm->user->name }} :  {{ $frm->judul }}
                                 </a>
                             </div>
@@ -65,7 +65,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-8 text-right">
+                                    <div class="col-md-8 text-right timestamp">
                                         {{ $frm->created_at->diffForHumans() }}
                                     </div>
                                 </div>

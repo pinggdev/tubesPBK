@@ -24,6 +24,7 @@ Route::get('/kelas-page', 'PageController@kelaspage');
 Route::get('/rinciankelas/{kelas}', 'PageController@rinciankelas')->name('rincian.kelas');
 Route::get('/tentang', 'PageController@tentang')->name('tentang');
 Route::resource('forum', 'ForumController');
+Route::get('/forum/{forum}/view', 'ForumController@view');
 
 Auth::routes();
 

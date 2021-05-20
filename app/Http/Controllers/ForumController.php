@@ -62,6 +62,13 @@ class ForumController extends Controller
         }  
     }
 
+    public function view(Forum $forum)
+    {
+        return view('front-end.forum.view', [
+            'forum'     => $forum
+        ]);
+    }
+
     /**
      * Display the specified resource.
      *
