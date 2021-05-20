@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Komentar extends Model
 {
     protected $table = 'komentar';
+    protected $guarded = ['id'];
 
     public function user()
     {
@@ -16,5 +17,10 @@ class Komentar extends Model
     public function forum()
     {
         return $this->belongsTo('App\Forum');
+    }
+
+    public function childs()
+    {
+        return $this->hasMany('App\Komentar', 'parent');
     }
 }

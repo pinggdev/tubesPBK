@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Forum;
+use App\Komentar;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -16,7 +17,7 @@ class ForumController extends Controller
      */
     public function index()
     {
-        $forum = Forum::orderBy('created_at', 'asc')->paginate(10);
+        $forum = Forum::orderBy('created_at', 'desc')->paginate(10);
         return view('front-end.forum.index', [
             'forum'     => $forum
         ]);
@@ -38,7 +39,7 @@ class ForumController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Forum $forum)
+    public function storeforum(Request $request, Forum $forum)
     {
         $validator = Validator::make($request->all(), [
             'judul'       => 'required',
@@ -67,6 +68,13 @@ class ForumController extends Controller
         return view('front-end.forum.view', [
             'forum'     => $forum
         ]);
+    }
+
+    public function postkomentar(Request $request)
+    {
+        $request->request->add(['user_id' => auth()->user()->id]);
+        $komentar = Komentar::create($request->all());
+        return redirect()->back();
     }
 
     /**

@@ -16,7 +16,7 @@
                 </div>
             </div>
 
-            <form action="{{ route('forum.store') }}" method="POST" class="form form-horizontal">
+            <form action="/storeforum" method="POST" class="form form-horizontal">
                 @csrf
                 <div class="form-body">
                     <div class="row">

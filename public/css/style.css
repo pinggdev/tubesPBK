@@ -370,6 +370,7 @@ body {
   background-color: #1D4076;
   border-radius: 20px;
   padding: 10px 40px;
+  border-color: #1D4076;
 }
 
 .forum .pertanyaan .btn-primary:hover {
@@ -486,10 +487,72 @@ body {
 }
 
 .forum .second ul li .timestamp {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 300;
   margin-top: -10px;
   color: #6e6e6e;
+}
+
+.forum .second .btn-group {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.forum .second .btn-group .like-cmt {
+  background-color: #1D4076;
+  padding: 7px 35px;
+  border-radius: 20px;
+  color: white;
+  font-size: 18px;
+  font-weight: 300;
+  margin-right: 10px;
+}
+
+.forum .second .btn-group .like-cmt:hover {
+  text-decoration: none;
+  background-color: #2a518b;
+}
+
+.forum .second .btn-group .icon {
+  width: 100%;
+  color: red !important;
+}
+
+.forum .second #custom-editor {
+  margin-bottom: 30px;
+}
+
+.forum .second #custom-editor .btn-custom {
+  margin-top: 10px;
+  background-color: #1D4076;
+  padding: 7px 30px;
+  color: white;
+  font-size: 16px;
+  font-weight: 300;
+  border-color: #1D4076;
+}
+
+.forum .second #custom-editor .btn-custom:hover {
+  background-color: #2a518b;
+}
+
+.forum .second .komen-komen {
+  margin-top: -10px;
+}
+
+.forum .second .komen-komen .btn-custom {
+  margin-top: 10px;
+  background-color: #1D4076;
+  padding: 7px 30px;
+  color: white;
+  font-size: 16px;
+  font-weight: 300;
+  border-color: #1D4076;
+}
+
+.forum .second ul li .komentar-anak {
+  font-weight: 300;
+  font-size: 16px;
 }
 
 footer {

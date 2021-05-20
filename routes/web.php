@@ -28,6 +28,11 @@ Route::get('/forum/{forum}/view', 'ForumController@view');
 
 Auth::routes();
 
+Route::group(['middleware' => ['auth', 'checkRole:admin,member']], function () {
+    Route::post('/storeforum', 'ForumController@storeforum')->name('storeforum');
+    Route::post('/forum/{forum}/view', 'ForumController@postkomentar');
+});
+
 Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
     Route::resource('kelas', 'KelasController');
     Route::resource('materi', 'MateriController');

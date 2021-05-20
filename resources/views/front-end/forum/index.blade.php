@@ -50,22 +50,13 @@
                                     <div class="col-md-2">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <a href="" class="like-cmt">
-                                                    <img class="icon" src="{{ asset('admin/assets/images/bg/heart.png') }}"></img><span>&nbsp; &nbsp; 0</span>
+                                                <a href="/forum/{{ $frm->id }}/view" class="like-cmt">
+                                                    <img class="icon" src="{{ asset('admin/assets/images/bg/message-circle.png') }}"></img><span>&nbsp; &nbsp; {{ $frm->komentar->count() }}</span>
                                                 </a>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-2">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <a href="" class="like-cmt">
-                                                    <img class="icon" src="{{ asset('admin/assets/images/bg/message-circle.png') }}"></img><span>&nbsp; &nbsp; 0</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8 text-right timestamp">
+                                    <div class="col-md-10 text-right timestamp">
                                         {{ $frm->created_at->diffForHumans() }}
                                     </div>
                                 </div>
