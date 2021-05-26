@@ -23,4 +23,9 @@ class Kelas extends Model
         return $this->hasMany('App\Kuis', 'kelas_id', 'id');
     }
 
+    public function submission()
+    {
+        return $this->hasMany('App\Submission');
+    }
+
 }
