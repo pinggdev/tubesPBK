@@ -146,6 +146,19 @@
                         </ul>
                     </li>
 
+                    <li class="sidebar-item  has-sub {{ Request::is('submission') ? 'active' : '' }}">
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-question-circle-fill"></i>
+                            <span>Submission</span>
+                        </a>
+                        <ul class="submenu">
+                            <li class="submenu-item ">
+                                <a href="{{ route('submission.index') }}">List Submisson</a>
+                                <a href="{{ route('submission.hasil') }}">Hasil Submisson</a>
+                            </li>
+                        </ul>
+                    </li>
+
                 </ul>
             @endif
 

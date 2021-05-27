@@ -41,6 +41,8 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
     Route::resource('option', 'OptionController');
     Route::resource('hasil', 'HasilKuisController');
     Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource('submission', 'SubmissionController');
+    Route::get('/submission/hasil', 'SubmissionController@hasil')->name('submission.hasil');
 });
 
 Route::group(['middleware' => ['auth', 'checkRole:member']], function () {

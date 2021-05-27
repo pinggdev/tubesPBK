@@ -26,7 +26,7 @@
             <h3 class="text-center">Daftar Kelas</h3>
             <div class="row">
                 <div class="col-md-6">
-                    <div class="card-kelas">
+                    <div class="card-kelas mx-auto">
                         <img class="img-fluid" src="{{ asset('admin/assets/images/bg/kelas-coding.png') }}" alt="coding">
                         <div class="row">
                             <div class="col-8">
@@ -40,7 +40,7 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="card-kelas">
+                    <div class="card-kelas mx-auto">
                         <img class="img-fluid" src="{{ asset('admin/assets/images/bg/kelas-design.png') }}" alt="design">
                         <div class="row">
                             <div class="col-8">
