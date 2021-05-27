@@ -60,4 +60,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Komentar');
     }
+
+    public function hasil_submission()
+    {
+        return $this->hasMany('App\HasilSubmission');
+    }
 }

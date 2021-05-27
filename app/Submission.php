@@ -13,4 +13,9 @@ class Submission extends Model
     {
         return $this->belongsTo('App\Kelas');
     }
+
+    public function hasil_submission()
+    {
+        return $this->hasMany('App\HasilSubmission');
+    }
 }

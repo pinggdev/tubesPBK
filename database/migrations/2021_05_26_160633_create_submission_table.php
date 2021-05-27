@@ -18,7 +18,6 @@ class CreateSubmissionTable extends Migration
             $table->foreignId('kelas_id')->constrained('kelas');
             $table->string('babsubmission');
             $table->text('soal');
-            $table->integer('lanjut')->default(0);
             $table->timestamps();
         });
     }

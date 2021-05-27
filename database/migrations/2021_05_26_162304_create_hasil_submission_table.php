@@ -16,7 +16,9 @@ class CreateHasilSubmissionTable extends Migration
         Schema::create('hasil_submission', function (Blueprint $table) {
             $table->id();
             $table->foreignId('submission_id')->constrained('submission');
+            $table->foreignId('user_id')->constrained('users');
             $table->string('file');
+            $table->integer('lanjut')->default(0);
             $table->timestamps();
         });
     }
