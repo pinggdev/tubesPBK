@@ -48,14 +48,14 @@
                             </div>
 
                             <div class="col-md-4">
-                                <label>Lanjut</label>
+                                <label>Tampil</label>
                             </div>
                             <fieldset class=" col-md-8 form-group">
-                                <select class="form-select @error('lanjut') {{ 'is-invalid' }} @enderror" id="basicSelect" name="lanjut">
-                                    <option value="0" @if($submission->lanjut == 0) selected @endif>Tidak Lanjut</option>
-                                    <option value="1" @if($submission->lanjut == 1) selected @endif>Lanjut</option>
+                                <select class="form-select @error('tampil') {{ 'is-invalid' }} @enderror" id="basicSelect" name="tampil">
+                                    <option value="0" @if($submission->tampil == 0) selected @endif>Tidak Tampil</option>
+                                    <option value="1" @if($submission->tampil == 1) selected @endif>Tampil</option>
                                 </select>
-                                @error('lanjut')
+                                @error('tampil')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </fieldset>

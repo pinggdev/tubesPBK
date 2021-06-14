@@ -128,7 +128,7 @@
                         </ul>
                     </li>
 
-                    <li class="sidebar-item  has-sub {{ Request::is('kuis') ? 'active' : '' }}">
+                    {{-- <li class="sidebar-item  has-sub {{ Request::is('kuis') ? 'active' : '' }}">
                         <a href="#" class='sidebar-link'>
                             <i class="bi bi-question-circle-fill"></i>
                             <span>Kuis</span>
@@ -144,7 +144,7 @@
                                 <a href="{{ route('hasil.index') }}">List Hasil Kuis</a>
                             </li>
                         </ul>
-                    </li>
+                    </li> --}}
 
                     <li class="sidebar-item  has-sub {{ Request::is('submission') ? 'active' : '' }}">
                         <a href="#" class='sidebar-link'>
@@ -154,7 +154,7 @@
                         <ul class="submenu">
                             <li class="submenu-item ">
                                 <a href="{{ route('submission.index') }}">List Submisson</a>
-                                <a href="{{ route('submission.hasil') }}">Hasil Submisson</a>
+                                <a href="{{ route('hasilsubmission.index') }}">Hasil Submisson</a>
                             </li>
                         </ul>
                     </li>

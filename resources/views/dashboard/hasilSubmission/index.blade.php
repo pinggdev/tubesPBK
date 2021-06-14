@@ -3,16 +3,16 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        <h4 class="card-title">Submission</h4>
+        <h4 class="card-title">Hasil Submission</h4>
     </div>
     <div class="card-content">
         <div class="card-body">
             <div class="row">
                 <div class="col-8 align-self-center">
-                    <a href="{{ route('submission.create') }}" class="btn btn-primary btn-sm align-self-center">Tambah Submission</a>
+                    {{-- <a href="{{ route('kelas.create') }}" class="btn btn-primary btn-sm align-self-center">Tambah Kelas</a> --}}
                 </div>
                 <div class="col-4">
-                    <form method="get" action="{{ route('submission.index') }}">
+                    <form method="get" action="{{ route('hasilsubmission.index') }}">
                         <div class="input-group">
                             <input type="text" class="form-control form-control-sm" name="q" value="{{ $request['q'] ?? '' }}">
                             <div class="input-group-append">
@@ -24,31 +24,31 @@
             </div>
             <!-- Table with outer spacing -->
             <div class="table-responsive">
-                @if ($submission->total())
+                @if ($hasil_submission->total())
                     <table class="table table-lg">
                         <thead>
                             <tr>
-                                <th class="text-center">NO</th>
-                                <th>KELAS</th>
-                                <th class="text-center">BAB SUBMISSION</th>
+                                <th>NO</th>
                                 <th>SOAL</th>
-                                <th class="text-center">TAMPIL</th>
+                                <th>USER</th>
+                                <th>FILE</th>
+                                <th class="text-center">LANJUT</th>
                                 <th>ACTION</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($submission as $sb)
+                            @foreach ($hasil_submission as $hs)
                                 <tr>
-                                    <td class="text-center" scope="row" style="vertical-align: middle;">{{ ($submission->currentPage() - 1) * $submission->perPage() + $loop->iteration }}</td>
-                                    <td class="text-bold-500">{{ $sb->kelas->kelas }}</td>
-                                    <td class="text-bold-500 text-center">{!! $sb->babsubmission !!}</td>
-                                    <td class="text-bold-500">{!! Str::limit($sb->soal, 50) !!}</td>
-                                    <td class="text-bold-500 text-center">{{ $sb->tampil }}</td>
+                                    <td scope="row" style="vertical-align: middle;">{{ ($hasil_submission->currentPage() - 1) * $hasil_submission->perPage() + $loop->iteration }}</td>
+                                    <td class="text-bold-500">{!! Str::limit($hs->submission->soal, 50) !!}</td>
+                                    <td class="text-bold-500">{{ $hs->user->name }}</td>
+                                    <td class="text-bold-500">{!! $hs->file !!}</td>
+                                    <td class="text-bold-500 text-center">{!! $hs->lanjut !!}</td>
                                     <td class="text-bold-500">
-                                        <form action="{{ route('submission.destroy', $sb->id) }}" method="POST">
+                                        <form action="{{ route('hasilsubmission.destroy', $hs->id) }}" method="POST">
                                             @csrf
                                             @method('delete')
-                                            <a href="{{ route('submission.edit', $sb->id) }}" class="btn btn-success btn-sm">Edit</a>
+                                            <a href="{{ route('hasilsubmission.edit', $hs->id) }}" class="btn btn-success btn-sm">Edit</a>
                                             <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                                         </form>
                                     </td>
@@ -56,7 +56,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    {{ $submission->appends($request)->links() }}
+                    {{ $hasil_submission->appends($request)->links() }}
                 @endif
             </div>
         </div>

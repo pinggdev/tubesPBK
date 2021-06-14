@@ -7,8 +7,10 @@ use App\Kelas;
 use App\Materi;
 use App\Option;
 use App\Result;
+use App\Submission;
 use App\JawabanKuis;
 use App\KuisPilihan;
+use App\HasilSubmission;
 use App\JawabanKuisUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -26,15 +28,26 @@ class ProfilController extends Controller
     public function tutorhp(Kelas $kelas)
     {
         $kuis = Kuis::get();
+        $hasil_submission = HasilSubmission::all();
+        $submission = Submission::all();
         return view('front-end.tutorial-homepage', [
-            'kelas' => $kelas,
-            'kuis' => $kuis,
+            'kelas'             => $kelas,
+            'kuis'              => $kuis,
+            'submission'        => $submission,
+            'hasil_submission'  => $hasil_submission,
             ]);
     }
 
     public function tutor(Kelas $kelas, Materi $materi)
     {
-        return view('front-end.tutorial', ['materi' => $materi, 'kelas' => $kelas]);
+        $submission = Submission::all();
+        $hasil_submission = HasilSubmission::all();
+        return view('front-end.tutorial', [
+            'materi'            => $materi, 
+            'kelas'             => $kelas,
+            'submission'        => $submission,
+            'hasil_submission'  => $hasil_submission,
+            ]);
     }
     
     public function kuisbab(Kelas $kelas, $babkuis)

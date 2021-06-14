@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Kelas;
 use App\Submission;
+use App\HasilSubmission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -134,4 +135,5 @@ class SubmissionController extends Controller
         return redirect()
                 ->route('submission.index');
     }
+
 }

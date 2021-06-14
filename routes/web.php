@@ -37,20 +37,25 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
     Route::resource('kelas', 'KelasController');
     Route::resource('materi', 'MateriController');
     Route::resource('user', 'UserController');
-    Route::resource('kuis', 'KuisController');
-    Route::resource('option', 'OptionController');
-    Route::resource('hasil', 'HasilKuisController');
+    // Route::resource('kuis', 'KuisController');
+    // Route::resource('option', 'OptionController');
+    // Route::resource('hasil', 'HasilKuisController');
     Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource('hasilsubmission', 'HasilSubmissionController');
+    // Route::get('/submission/hasil', 'SubmissionController@hasil')->name('submission.hasil');
     Route::resource('submission', 'SubmissionController');
-    Route::get('/submission/hasil', 'SubmissionController@hasil')->name('submission.hasil');
+    // Route::post('/hasil/{id}/edit', 'HasilSubmissionController@edit')->name('hasil.edit');
 });
 
 Route::group(['middleware' => ['auth', 'checkRole:member']], function () {
     Route::get('/profil', 'ProfilController@kelas_saya');
     Route::get('/tutorial-homepage/{kelas}', 'ProfilController@tutorhp')->name('tutorhp');
     Route::get('/tutorial/{kelas}/{materi}', 'ProfilController@tutor');
-    Route::get('/kuisbab/{kelas}/{babkuis}', 'ProfilController@kuisbab');
-    Route::post('/storekuis', 'ProfilController@storekuis')->name('storekuis');
-    Route::get('/tampilhasil/{result_id}', 'ProfilController@tampilhasil')->name('hasil.show');
+    // Route::get('/kuisbab/{kelas}/{babkuis}', 'ProfilController@kuisbab');
+    Route::get('/submission/{kelas}/{babsubmission}' , 'HasilSubmissionController@create');
+    Route::post('/store/submission' , 'HasilSubmissionController@store');
+
+    // Route::post('/storekuis', 'ProfilController@storekuis')->name('storekuis');
+    // Route::get('/tampilhasil/{result_id}', 'ProfilController@tampilhasil')->name('hasil.show');
 });
 
